@@ -4,13 +4,190 @@
 
 <%block name="pagetitle">${_("Terms of Service")}</%block>
 
-<main id="main" aria-label="Content" tabindex="-1">
-    <section class="container about">
-        <h1>
-            <%block name="pageheader">${page_header or _("Terms of Service")}</%block>
-        </h1>
-        <p>
-            <%block name="pagecontent">The terms of service of {{ PLATFORM_NAME }} can be obtained by getting in touch with our support at <a href="mailto:{{ CONTACT_EMAIL }}">{{ CONTACT_EMAIL }}</a>.</%block>
-        </p>
-    </section>
-</main>
+<style type="text/css">
+
+    .tos-part {
+        margin-top: 15px !important;
+    }
+
+    .tos-section {
+        list-style: none !important;
+        padding: 0px !important;
+    }
+
+    .tos-section-item {
+        margin-bottom: 15px !important;
+    }
+
+    .tos-section-item > span {
+        font-weight: bold !important;
+        position: absolute !important;
+    }
+
+    .tos-section-item > p {
+        margin-left: 40px !important;
+        display: inline-block !important;
+        position: relative !important;
+        /*top: -21px !important;*/
+    }
+
+    .tos-section-alpha {
+        list-style: none !important;
+        counter-reset: tos-section-alpha-counter;
+    }
+
+    .tos-section-alpha > li::after {
+        min-width: 30px !important;
+    }
+
+    .tos-section-alpha > li::before {
+        content: '(' counter(tos-section-alpha-counter, lower-alpha) ')';
+        counter-increment: tos-section-alpha-counter;
+        position: absolute !important;
+        /*min-width: 20px !important;*/
+    }
+
+    .tos-section-alpha > li p {
+        margin-left: 40px !important;
+        display: inline-block !important;
+        position: relative !important;
+        /*top: -21px !important;*/
+    }
+}
+</style>
+
+<main id="main" role="main" class="clearfix width-100" aria-label="Content" tabindex="-1">
+    <div class="fusion-row" style="max-width:100%;">
+        <div id="content" class="full-width">
+            <div id="post-24" class="post-24 page type-page status-publish hentry" style="padding-left:30px; padding-right:30px">
+
+                <div class="post-content">
+                    <div class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth"
+                         style="background-color: white;background-position: left top;background-repeat: no-repeat;padding-top:20px;padding-right:30px;padding-bottom:20px;padding-left:30px;border-top-width:0px;border-bottom-width:0px;border-color:#eae9e9;border-top-style:solid;border-bottom-style:solid;">
+                        <div class="fusion-builder-row fusion-row ">
+
+                            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
+                                <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+                                    <div class="fusion-title title fusion-sep-none fusion-title-size-two fusion-border-below-title"
+                                         style="margin-top:40px;margin-bottom:0px;">
+                                        <h1>
+                                            <%block name="pageheader">${page_header or _("Terms of Service")}</%block>
+                                        </h1>
+                                        <p>The Terms and Conditions (hereinafter, the "Terms") contained herein shall
+                                            govern all usage of the EducateWorkforce<sup>TM</sup> platform located at
+                                            the EducateWorkforce<sup>TM</sup> website (www.EducateWorkforce.com),
+                                            including all pages of the EducateWorkforce website (hereinafter,
+                                            collectively, the "Website"). These Terms apply in full force and effect to
+                                            your use of the Website. By clicking "Accept", below, and by using the
+                                            Website, you expressly accept all terms and conditions contained herein in
+                                            full. You must not use the Website, if you have any objection to any of
+                                            these Terms.</p>
+
+                                        <h3 class="tos-part">Part 1. Usage and Access of Content.</h3>
+                                        <ul class="tos-section">
+                                            <li class="tos-section-item"><span>1.1</span><p>By using the Website and accepting these Terms, you expressly acknowledge the rights of Clemson University Research Foundation ("CURF") and Clemson University ("Clemson") in the workforce educational program entitled EducateWorkforce<sup>TM</sup>, in all materials and content on the Website, or otherwise accessible through use of the Website, including all intellectual property rights to the foregoing, whether under copyright, trademark, trade secret, etc., (collectively, the "Content"), and agrees to do nothing inconsistent with such rights or to challenge such rights.</p></li>
+                                            <li class="tos-section-item"><span>1.2</span><p>You further agree to use the Content solely for non-commercial educational purposes, and only in the form and manner provided through the Website and with appropriate copyright notices and trademark legends as prescribed on the Website, or otherwise by CURF or Clemson, and not to use any other trademark or service mark of CURF or Clemson in combination with any Content without prior written approval.</p></li>
+                                            <li class="tos-section-item"><span>1.3</span><p>You further agree that any usage of any trademarks, service marks, or tradenames within the Content (collectively, "Marks") by Licensee shall inure to the benefit of and be on behalf of CURF and Clemson.</p></li>
+                                            <li class="tos-section-item"><span>1.4</span><p>You further agree that the nature and quality of all services rendered by you in connection with Content (including the Marks), and any related advertising, promotional and other related uses of Content (including the Marks) by you, shall be in support of your non-commercial educational use of the Content.</p></li>
+                                            <li class="tos-section-item"><span>1.5</span><p>You further agree that through use of the Website, no right, title or interest in the Content, other than the right to use the Content in accordance with these Terms, is provided.</p></li>
+                                            <li class="tos-section-item"><span>1.6</span><p>You further agree that title to any improvements, modifications, corrections, derivative works of the Content and any Feedback shall vest solely in Clemson.</p></li>
+                                            <li class="tos-section-item"><span>1.7</span><p>You further agree to cooperate with CURF in facilitating CURF’s control of the nature and quality of any Content or services provided incorporating the Marks, and to supply CURF with information of all uses of the Content upon request by CURF or Clemson, as well as all other information reasonably requested by CURF or Clemson for its assessment, evaluation and/or research regarding the outcomes and effectiveness of EducateWorkforce<sup>TM</sup>. You acknowledge and agree that all information and data provided to CURF and/or Clemson in accordance with these Terms may be provided to and used by Clemson in connection with EducateWorkforce<sup>TM</sup> and its other educational, scientific, and charitable activities.</p></li>
+                                            <li class="tos-section-item"><span>1.8</span><p>You further agree to comply with all applicable laws and regulations and to obtain all appropriate government approv¬als pertaining to the use of the Content.</p></li>
+                                            <li class="tos-section-item"><span>1.9</span><p>You further agree to only access the Content through the website EducateWorkforce.com.</p></li>
+                                            <li class="tos-section-item"><span>1.10</span><p>You further agree that CURF or Clemson may restrict or cease your access to the Website in response to any violation of any provision within the Terms.</p></li>
+                                        </ul>
+
+                                        <h3 class="tos-part">Part 2. Use Restrictions.</h3>
+                                        <ul class="tos-section">
+                                            <li class="tos-section-item"><span>2.1</span><p>You are expressly and emphatically restricted from all of the following:</p>
+                                                <ul class="tos-section-alpha">
+                                                    <li><p>publishing any Content in any media, except as expressly authorized by the Website;</p></li>
+                                                    <li><p>selling, sublicensing and/or otherwise commercializing any Content;</p></li>
+                                                    <li><p>using the Website in any way that is, or may be, damaging to the Website;</p></li>
+                                                    <li><p>using the Website in any way that impacts user access to the Website;</p></li>
+                                                    <li><p>using the Website contrary to applicable laws and regulations, or in a way that causes, or may cause, harm to the Website, or to any person or business entity;</p></li>
+                                                    <li><p>engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to the Website, or while using the Website; and</p></li>
+                                                    <li><p>using the Website to engage in any advertising or marketing not expressly permitted by the Website.</p></li>
+                                                </ul>
+                                            </li>
+                                            <li class="tos-section-item"><span>2.2</span><p>Certain areas of the Website may be restricted from access by you and CURF or Clemson may further restrict access by you to any areas of the Website, at any time, in its sole and absolute discretion.  Any user ID and password you may have for the Website are confidential and you must maintain confidentiality of such information.  User IDs and passwords cannot be shared between different individuals.</p></li>
+                                            <li class="tos-section-item"><span>2.3</span><p>The Website is not for use by any minors (defined as those who are not at least 18 years of age), and you must not use the Website if you are minor.</p></li>
+                                        </ul>
+
+                                        <h3 class="tos-part">Part 3. No warranties.</h3>
+                                        <p>
+                                            THE WEBSITE IS PROVIDED "AS IS," WITH ALL FAULTS, AND NEITHER CURF NOR CLEMSON MAKE ANY EXPRESS OR IMPLIED REPRESENTATIONS OR WARRANTIES, OF ANY KIND RELATED TO THE WEBSITE OR THE MATERIALS CONTAINED ON THE WEBSITE, INCLUDING ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. Additionally, nothing contained on the Website shall be construed as providing consult or advice to you.
+                                        </p>
+
+                                        <h3 class="tos-part">Part 4. Limitation of liability.</h3>
+                                        <p>
+                                            In no event shall CURF or Clemson, or any of its officers, directors, employees and students, be liable to you for anything arising out of or in any way connected with your use of the Website, whether such liability is under contract, tort or otherwise, and neither CURF nor Clemson, nor any of its officers, directors and employees shall not be liable for any indirect, consequential or special liability arising out of or in any way related to your use of the Website.
+                                        </p>
+
+                                        <h3 class="tos-part">Part 5. Indemnification.</h3>
+                                        <p>
+                                            You hereby agree to indemnify to the fullest extent CURF and Clemson from and against any and all liabilities, costs, demands, causes of action, damages and expenses (including reasonable attorney’s fees) arising out of or in any way related to your breach of any of the provisions of these Terms.
+                                        </p>
+
+                                        <h3 class="tos-part">Part 6. Severability.</h3>
+                                        <p>
+                                            If any provision of these Terms is found to be unenforceable or invalid under any applicable law, such unenforceability or invalidity shall not render these Terms unenforceable or invalid as a whole, and such provisions shall be deleted without affecting the remaining provisions herein.
+                                        </p>
+
+                                        <h3 class="tos-part">Part 7. Variation of Terms.</h3>
+                                        <p>
+                                            CURF is permitted to revise these Terms at any time as it sees fit, and by using the Website you are expected to review such Terms on a regular basis to ensure you understand and agree to all terms and conditions governing use of the Website.
+                                        </p>
+
+                                        <h3 class="tos-part">Part 8. Assignment.</h3>
+                                        <p>
+                                            CURF shall be permitted to assign, transfer, and subcontract its rights and/or obligations under these Terms without any notification or consent required. However, you shall not be permitted to assign, transfer, or subcontract any of your rights and/or obligations under these Terms.
+                                        </p>
+
+                                        <h3 class="tos-part">Part 9. Entire Agreement.</h3>
+                                        <p>
+                                            These Terms, including any legal notices and disclaimers contained on the Website, constitute the entire agreement between CURF and you in relation to your use of the Website and the Content, with the exception of any EducateWorkforce<sup>TM</sup> License Agreement.  With the exception of the terms and agreement in any executed EducateWorkforce<sup>TM</sup> License Agreement, these Terms supersede all prior agreements and understandings with respect to the same.
+                                        </p>
+
+                                        <h3 class="tos-part">Part 9. Governing Law & Jurisdiction.</h3>
+                                        <p>
+                                            These Terms will be governed by and construed in accordance with the laws of the State of South Carolina, and you submit to the non-exclusive jurisdiction of the state and federal courts located in South Carolina for the resolution of any disputes.
+                                        </p>
+
+                                        <h3 class="tos-part">Part 10. Feedback.</h3>
+                                        <p>
+                                            Any information that you provide to CURF or Clemson (including, without limitation, questions, comments, suggestions, or the like) regarding the performance, features, functionality or your overall experience using the website shall be defined as "Feedback" under these Terms and Conditions.  You hereby grant to CURF and Clemson an exclusive, royalty-free, irrevocable, perpetual worldwide right and license to reproduce, use, disclose, exhibit, display, transform, create derivative works and distribute any such Feedback without limitation. Further, CURF and Clemson will be free to use any ideas, concepts, know-how or techniques contained in such Feedback for any purpose whatsoever, including, without limitation, developing, making, marketing, distributing and selling products and services incorporating such Feedback.  Neither Clemson nor CURF will have any obligation to consider, use, return or preserve any Feedback you provided to Clemson or CURF. Any Feedback you provide may or may not be treated confidentially by CURF or Clemson, and CURF and Clemson will have no obligation or liability to you for the use or disclosure of any Feedback. You should not to expect any compensation of any kind from us with respect to your Feedback.
+                                        </p>
+
+                                        <div class="fusion-fullwidth fullwidth-box hundred-percent-fullwidth fusion-equal-height-columns"
+                                             style="background-color: #dddddd;background-position: left top;background-repeat: no-repeat;padding-top:45px;padding-right:23%;padding-bottom:20px;padding-left:23%;border-top-width:0px;border-bottom-width:0px;border-color:#eae9e9;border-top-style:solid;border-bottom-style:solid; margin-top: 30px;">
+                                            <div class="fusion-builder-row fusion-row ">
+                                                <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"
+                                                     style="margin-top:0px;margin-bottom:20px;">
+                                                    <div class="fusion-column-wrapper"
+                                                         style="background-color: rgb(58, 73, 88); border-left: 9px solid rgb(132, 193, 152); padding: 27px; background-position: left top; background-repeat: no-repeat; background-size: cover; /*min-height: 135px;*/ height: auto;"
+                                                         data-bg-url="">
+                                                        <p class="ca2ves-goals"
+                                                           style="font-size: 20px; line-height: 27px; color: #fff;">
+                                                            By clicking "Agree" I am representing that I have read the
+                                                            above Terms, and expressly acknowledge and agree to the
+                                                            above Terms.
+                                                        </p>
+                                                        <div class="fusion-clearfix"></div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fusion-clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  <!-- fusion-row -->
+</main>  <!-- #main -->
