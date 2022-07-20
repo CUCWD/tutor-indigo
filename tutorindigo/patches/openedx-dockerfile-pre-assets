@@ -1,0 +1,4 @@
+# Copy scripts for EducateWorkforce
+COPY --chown=app:app ./bin/educateworkforce /openedx/bin/educateworkforce
+RUN chmod a+x /openedx/bin/educateworkforce/*
+ENV PATH /openedx/bin/educateworkforce:${PATH}
