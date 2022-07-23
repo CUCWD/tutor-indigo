@@ -36,7 +36,7 @@
   .logo {
     display: block;
 
-    @include size(rem(100), auto);
+    @include size(rem(300), auto);
 
     margin: 0 auto;
   }
@@ -208,15 +208,132 @@
     position: relative;
     top: -(map-get($spacing-vertical, base));
 
+    .accomplishment-certificate-of-completion {
+    
+        margin-top: 10px;
+        margin-bottom: -50px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 770px;
+    
+        // @media (min-width: $bp-screen-lg)
+        @include media-breakpoint-up(lg) {
+          margin-left: 15%;
+          margin-right: 15%;
+        }
+    
+        // @media only screen and (max-width: $bp-screen-md - 1)
+        @media only screen {
+            @include media-breakpoint-down(md) {
+              margin-left: 0px;
+              margin-right: 0px;
+              margin-bottom: 40px;
+            }
+        }
+
+        .accomplishment-certificate-of-completion-symbol {
+    
+          img {
+            &.mobile {
+              display: none;
+            }
+    
+            display: block;
+          }
+    
+          // @media only screen and (max-width: $bp-screen-md - 1)
+          @media only screen {
+            @include media-breakpoint-down(md) {
+              img {
+                &.mobile {
+                  display: block;
+                }
+      
+                display: none;
+              }
+            }
+          }
+        }
+    
+    }
+    
+    .accomplishment-certificate-logo {
+  
+      /* margin-top: -84px;
+        margin-bottom: 16px;
+        margin-left: auto;
+        margin-right: auto; */
+      margin: 16px auto;
+      /* width: 220px; */
+      height: 210px !important;
+      padding: 20px;
+  
+      // @media only screen and (max-width: $bp-screen-md - 1)
+      @media screen {
+        @include media-breakpoint-down(md) {
+          margin-top: -36px;
+        }
+      }
+  
+      .accomplishment-certificate-logo-symbol {
+        margin: 0 auto 1.25rem auto;
+  
+        img {
+          display: block;
+          /* width: 100%; */
+          margin: auto auto;
+          height: 100%;
+        }
+      }
+
+    }
+
     .accomplishment-course,
     .accomplishment-recipient,
     .accomplishment-type {
       @include make-col(12);
     }
 
+    .accomplishment-type {
+        display: none !important;
+    }
+
     .accomplishment-summary,
     .accomplishment-statement-detail {
       @include make-col(12);
+    }
+
+    .accomplishment-certificate-seal {
+
+      width: 180px;
+      min-width: 180px;
+      position: absolute;
+      right: 60px;
+      bottom: 45px;
+      margin-left: 20px;
+
+      // @media only screen and (max-width: $bp-screen-md - 1)
+      @media only screen {
+        @include media-breakpoint-down(md) {
+          display: none !important;
+        }
+      }
+
+      .accomplishment-certificate-seal-symbol {
+          margin: 0 auto 1.25rem auto;
+
+          img {
+              display: block;
+              width: 100%;
+          }
+
+          #qrcode-certificate-seal {
+              position: absolute;
+              right: 55px;
+              bottom: 55px;
+          }
+      }
+
     }
   }
 

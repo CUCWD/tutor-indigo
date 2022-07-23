@@ -3,6 +3,16 @@
 <%namespace name='static' file='../static_content.html'/>
 <%
 course_mode_class = course_mode if course_mode else ''
+
+
+# Overrides
+# -----------------
+accomplishment_copy_description_full = _("having satisfactorily completed a course of instruction in")
+
+organization_short_name = "Caregiver"
+# Translators:  This text represents the description of course
+accomplishment_copy_course_description = _('is awarded this {certificate_type} certificate of completion offered by ').format(
+    certificate_type=certificate_type)
 %>
 
 <main class="accomplishment accomplishment-main">
@@ -19,6 +29,21 @@ course_mode_class = course_mode if course_mode else ''
                     <img class="src" src="/static/certificates/images/ico-${course_mode_class}.png" alt="Image for course mode of type ${course_mode_class}">
                 </span>
 
+                <span class="accomplishment-type-label hd-4">${document_title}</span>
+            </div>
+
+            <div class="accomplishment-certificate-of-completion">
+                <span class="accomplishment-certificate-of-completion-symbol">
+                     <img class="src" src="${static.url('certificates/images/certificate-of-completion-text.svg')}" alt="Certificate of Completion">
+                     <img class="src mobile" src="${static.url('certificates/images/certificate-of-completion-text-mobile.svg')}" alt="Certificate of Completion">
+                </span>
+            </div>
+
+            <div class="accomplishment-certificate-logo">
+                <span class="accomplishment-certificate-logo-symbol">
+                    <img class="src" src="${static.url('certificates/images/certificate-logo.svg')}" alt="Certificate ${organization_short_name} Logo">
+                </span>
+
                 <span class="accomplishment-type-label hd-3">${document_title}</span>
             </div>
 
@@ -29,13 +54,19 @@ course_mode_class = course_mode if course_mode else ''
                         <span class="accomplishment-summary copy copy-lead">${accomplishment_copy_description_full}</span>
 
                         <span class="accomplishment-course hd-1 emphasized">
-                            <span class="accomplishment-course-org">${accomplishment_copy_course_org}  </span>
-                            <span class="accomplishment-course-number">${course_number}</span>:
+                            <!--<span class="accomplishment-course-org">${accomplishment_copy_course_org}  </span>
+                            <span class="accomplishment-course-number">${course_number}</span>:-->
                             <span class="accomplishment-course-name">${accomplishment_copy_course_name}</span>
                         </span>
                     </p>
 
-                    <p class="accomplishment-statement-detail copy copy-lead">${accomplishment_copy_course_description}</p>
+                    <p class="accomplishment-statement-detail copy copy-lead">${accomplishment_copy_course_description}<br />${organization_short_name}.</p>
+                </div>
+
+                <div class="accomplishment-date">
+                    <p>
+                        <span class="accomplishment-date-detail copy copy-lead"><strong>${certificate_date_issued_title}</strong><span>${certificate_date_issued}</span></span>
+                    </p>
                 </div>
 
                 % if mode != 'base':
@@ -84,6 +115,14 @@ course_mode_class = course_mode if course_mode else ''
                     % endif
                 </ul>
             </div>
+
+            <div class="accomplishment-certificate-seal">
+                <span class="accomplishment-certificate-seal-symbol">
+                    <img class="src" src="${static.url('certificates/images/certificate-seal-gold.svg')}" alt="Certificate Seal">
+                    <div id="qrcode-certificate-seal"></div>
+                </span>
+            </div>
+
         </div>
     </div>
 
@@ -117,3 +156,64 @@ course_mode_class = course_mode if course_mode else ''
     </div>
 
 </main>
+
+<%block name="js_extra">
+  <%static:js group='certificates_wv'/>
+    <script type="text/javascript" src="${static.url('certificates/js/qrcodejs/qrcode.js')}"></script>
+    <script type="text/javascript">
+
+        function setupQRCode() {
+                // Setup QR Code
+                var qrCodeCertificateSeal = new QRCode(document.getElementById("qrcode-certificate-seal"), {
+                    text: "${share_url}",
+                    width: 70,
+                    height: 70,
+                    colorDark: "#603c1b",
+                    colorLight: "#f4d075",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+                qrCodeCertificateSeal.makeCode("${share_url}");
+            }
+
+            function setupCourseNameFontSize() {
+
+                var $courseName = $(".accomplishment-rendering .accomplishment-course-name");
+                var $numWords = $courseName.text().split(" ").length;
+                var $fontSize = parseFloat($courseName.css("font-size"));
+
+                var $numCharacters = $courseName.text().length;
+
+                if ($numCharacters > 65) {
+                    $fontSize = 21;
+
+                    $courseName.parent().css({
+                        "margin-top": "-13px",
+                        "margin-bottom": "-12px",
+                        "line-height": "26.25px"
+                    });
+                }
+                else if (($numCharacters > 50) && $numCharacters <= 65) {
+                    $fontSize = 27;
+                }
+                else {
+                    // Use default font size.
+                }
+
+                $courseName.css({
+                    "font-size": $fontSize + "px",
+                    "display": "inline-block",
+                    "padding": "0px 225px"
+                });
+            }
+
+            function certficateSetup() {
+                setupCourseNameFontSize();
+                setupQRCode();
+            }
+
+        $(document).ready(function () {
+            certficateSetup();
+        });
+
+    </script>
+</%block>

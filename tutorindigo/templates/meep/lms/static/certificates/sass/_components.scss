@@ -251,17 +251,23 @@
 
   // statement
   .accomplishment-statement {
-    @extend %rendering-section;
+    // @extend %rendering-section;
 
     @include text-align(center);
   }
 
   .accomplishment-statement-lead {
     @extend .hd-2;
+    // margin-top: 0 rem !important;
+  }
+
+  .accomplishment-date {
+      @include text-align(center);
   }
 
   .accomplishment-recipient {
     @extend %rendering-accomplishment-line;
+    // font-size: 45px !important;
   }
 
   .accomplishment-summary {
@@ -288,6 +294,7 @@
 
   // organizations
   .accomplishment-orgs {
+    display: none !important;
     margin-bottom: map-get($spacing-vertical, base);
   }
 
@@ -297,6 +304,7 @@
 
   // signatories
   .accomplishment-signatories {
+    display: none !important;
     @extend %rendering-section;
 
     .signatory-signature {
@@ -331,6 +339,17 @@
 
   .accomplishment-signatories-title {
     @extend %rendering-hd-section;
+  }
+
+  .accomplishment-date-detail {
+      font-size: 19px !important;
+
+      span {
+          font-size: 16px !important;
+          border-bottom: 1px solid black;
+          padding-bottom: 5px;
+          margin-left: 10px;
+      }
   }
 }
 
@@ -457,6 +476,7 @@
 
     .accomplishment-type-label {
       color: $cert-base-color;
+      display: none !important;
     }
 
     .accomplishment-signatories-title,
@@ -494,6 +514,16 @@
   }
 
   .accomplishment-rendering {
+
+    /* 
+    background: url('../images/bg-organization-top.png') center top no-repeat, url('../images/bg-organization-bottom.png') center bottom no-repeat;
+    background-color: $white;
+    background-size: 100%, 100%;
+    */
+    // background: url('../images/bg-organization.png') center center no-repeat;
+    background-color: $white;
+    background-size: cover;
+
     .accomplishment-type {
       margin-top: 0;
     }
@@ -517,8 +547,18 @@
   }
 
   .accomplishment-rendering {
+    /* Took out this background watermark for verified certs
     background: $white url('../images/bg-verified.png') center no-repeat;
     background-size: 65%;
+    */
+    /* 
+    background: url('../images/bg-organization-top.png') center top no-repeat, url('../images/bg-organization-bottom.png') center bottom no-repeat;
+    background-color: $white;
+    background-size: 100%, 100%;
+    */
+    background: url('../images/bg-organization.png') center center no-repeat;
+    background-color: $white;
+    background-size: cover;
 
     .deco-corner-tl {
       @include triangle(20px, $cert-distinguished-color, up-right);

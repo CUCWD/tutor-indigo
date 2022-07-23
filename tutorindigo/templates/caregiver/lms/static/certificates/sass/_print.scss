@@ -191,8 +191,8 @@
 
   .accomplishment-rendering {
     top: 0 !important;
-    border: rem(1) solid $gray-back;
-    border-top: rem(2) solid $cert-base-color;
+    border: none; // rem(1) solid $gray-back;
+    border-top: none; // rem(2) solid $cert-base-color;
     box-shadow: none;
     padding: map-get($spacing-vertical, small) map-get($spacing-horizontal, mid-large);
 
@@ -210,9 +210,21 @@
       border: none !important;
     }
 
-    .wrapper-statement-and-signatories {
-      border-bottom: rem(2) solid $gray-x-back;
+
+    .accomplishment-certificate-of-completion {
+
+      .accomplishment-certificate-of-completion-symbol {
+          img {
+              &.mobile {
+                  display: none !important;
+              }
+          }
+      }
     }
+    
+    // .wrapper-statement-and-signatories {
+    //   border-bottom: rem(2) solid $gray-x-back;
+    // }
 
     .accomplishment-statement {
       @extend %print-rendering-section;
@@ -220,6 +232,12 @@
       @include make-col(8);
 
       margin: 0 auto;
+
+      .accomplishment-course-name {
+        font-size: 21px !important;
+        display: inline-block;
+        padding: 0px 40px !important;
+      }
     }
 
     .accomplishment-summary,
@@ -282,6 +300,11 @@
         }
       }
     }
+
+    .accomplishment-certificate-seal {
+      margin-right: -20px;
+    }
+
   }
 
   .layout-accomplishment .wrapper-accomplishment-metadata {
