@@ -33,6 +33,7 @@ config = {
     # Add here your new settings
     "defaults": {
         "VERSION": __version__,
+        "PLATFORM_NAME": "EducateWorkforce",
         "WELCOME_MESSAGE": "The place for all your online learning",
         "PRIMARY_COLOR": "#3b85ff",  # cool blue
         # Footer links are dictionaries with a "title" and "url"
@@ -49,6 +50,7 @@ config = {
                 "url": "https://github.com/overhangio/tutor-indigo",
             },
         ],
+        "CONTACT_EMAIL": EDUCATEWORKFORCE_SUPPORT_EMAIL,
         "DEFAULT_FROM_EMAIL": EDUCATEWORKFORCE_DEFAULT_FROM_EMAIL,
         "SUPPORT_EMAIL": EDUCATEWORKFORCE_SUPPORT_EMAIL,
 
