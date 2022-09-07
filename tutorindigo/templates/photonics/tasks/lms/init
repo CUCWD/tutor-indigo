@@ -1,0 +1,115 @@
+
+# Initialize Site Configuration for AIM Photonics
+
+for domain in "{{ PHOTONICS_LMS_HOST }}" "{{ PHOTONICS_LMS_HOST }}:8000"
+do
+    # Platform Configuration
+    site-configuration set --domain=$domain ALLOW_AUTOMATED_SIGNUPS true
+    site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_DASHBOARD_FOR_AUTHENTICATED_USER true
+    site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_LOGIN_FOR_UNAUTHENTICATED_USER false
+    site-configuration set --domain=$domain AUTH_USE_SHIB false    
+    site-configuration set --domain=$domain AUTH_USE_OPENID_PROVIDER true
+    site-configuration set --domain=$domain AUTOMATIC_AUTH_FOR_TESTING false
+
+    {% if PHOTONICS_BADGR_ISSUER_SLUG %}
+    site-configuration set --domain=$domain BADGR_ISSUER_SLUG "{{ PHOTONICS_BADGR_ISSUER_SLUG }}"
+    {% endif %}
+
+    site-configuration set --domain=$domain COURSE_ABOUT_VISIBILITY_PERMISSION "see_about_page"
+    site-configuration set --domain=$domain COURSE_CATALOG_VISIBILITY_PERMISSION "see_in_catalog"
+    site-configuration set --domain=$domain COURSES_ARE_BROWSABLE false
+    site-configuration set --domain=$domain ENABLE_COMBINED_LOGIN_REGISTRATION true
+    site-configuration set --domain=$domain ENABLE_COURSE_DISCOVERY false
+    site-configuration set --domain=$domain ENABLE_DASHBOARD_SEARCH true
+    site-configuration set --domain=$domain ENABLE_MKTG_SITE true    
+    site-configuration set --domain=$domain ENABLE_PAID_COURSE_REGISTRATION true
+    site-configuration set --domain=$domain ENABLE_PROFILE_MICROFRONTEND true
+    site-configuration set --domain=$domain ENABLE_SHOPPING_CART true
+    site-configuration set --domain=$domain ENABLE_THIRD_PARTY_AUTH true
+    site-configuration set --domain=$domain DEFAULT_FROM_EMAIL "{{ PHOTONICS_DEFAULT_FROM_EMAIL }}"
+    site-configuration set --domain=$domain FOOTER_ORGANIZATION_IMAGE "photonics/images/logo-footer.png"
+    site-configuration set --domain=$domain LMS_ROOT_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://$domain"
+    site-configuration set --domain=$domain MKTG_URL_LINK_MAP \
+    "
+    {
+        \"ABOUT\": null,
+        \"CONTACT\": null,
+        \"HELP_CENTER\": null,
+        \"COURSES\": null,
+        \"TOS\": \"tos\",
+        \"HONOR\": null,
+        \"PRIVACY\": null,
+        \"CAREERS\": null,
+        \"NEWS\": null,
+        \"PRESS\": null,
+        \"BLOG\": null,
+        \"DONATE\": null,
+        \"SITEMAP.XML\": null,
+        \"WHAT_IS_VERIFIED_CERT\": null
+    }
+    " --json-argument
+    site-configuration set --domain=$domain MKTG_URLS \
+    "
+    {
+        \"ABOUT\": null,
+        \"ACCESSIBILITY\": null,
+        \"AFFILIATES\": null,
+        \"BLOG\": null,
+        \"CAREERS\": null,
+        \"CONTACT\": \"/resources\",
+        \"COURSES\": \"/courses\",
+        \"DONATE\": null,
+        \"ENTERPRISE\": \"\",
+        \"FAQ\": \"/resources\",
+        \"HONOR\": null,
+        \"HOW_IT_WORKS\": null,
+        \"MEDIA_KIT\": null,
+        \"NEWS\": null,
+        \"PRESS\": null,
+        \"PRIVACY\": null,
+        \"RESOURCES\": \"/resources\",
+        \"ROOT\": \"{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ PHOTONICS_MKG_ROOT_URL }}\",
+        \"SCHOOLS\": null,
+        \"SITE_MAP\": null,
+        \"TRADEMARKS\": null,
+        \"TOS\": \"/tos\",
+        \"TOS_AND_HONOR\": null,
+        \"WHAT_IS_VERIFIED_CERT\": null
+    }
+    " --json-argument
+    site-configuration set --domain=$domain PLATFORM_NAME "{{ PHOTONICS_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain QUALTRICS_SCORE_ID "{{ PHOTONICS_QUALTRICS_SCORE_ID }}"
+    site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
+
+    {% if PHOTONICS_SESSION_COOKIE_DOMAIN %}
+    site-configuration set --domain=$domain SESSION_COOKIE_DOMAIN "{{ PHOTONICS_SESSION_COOKIE_DOMAIN }}"
+    {% endif %}
+
+    site-configuration set --domain=$domain SHIB_DISABLE_TOS true
+    site-configuration set --domain=$domain SITE_NAME $domain
+    site-configuration set --domain=$domain SUPPORT_SITE_LINK "mailto:{{ PHOTONICS_SUPPORT_EMAIL }}"
+    
+
+    # Additional Microsite Theming Configuration
+    # https://github.com/openedx/edx-platform/wiki/Microsites-Theming
+    site-configuration set --domain=$domain course_email_from_addr "{{ PHOTONICS_DEFAULT_FROM_EMAIL }}"
+    site-configuration set --domain=$domain course_org_filter "PHOTONICS"
+    site-configuration set --domain=$domain contact_mailing_address "{{ PHOTONICS_SUPPORT_EMAIL }}"
+    site-configuration set --domain=$domain course_about_facebook_link ""
+    site-configuration set --domain=$domain course_about_show_social_links false
+    site-configuration set --domain=$domain course_about_twitter_account ""
+    site-configuration set --domain=$domain css_overrides_file "photonics/css/override.css"
+    site-configuration set --domain=$domain email_from_address "{{ PHOTONICS_DEFAULT_FROM_EMAIL }}"
+    site-configuration set --domain=$domain favicon_path "photonics/images/favicon.ico"
+    site-configuration set --domain=$domain homepage_overlay_html "<h1>This is a {{ PHOTONICS_PLATFORM_NAME }} Microsite Homepage Overlay HTML</h1>"
+    site-configuration set --domain=$domain logo_image_url "photonics/images/logo.png"
+    site-configuration set --domain=$domain platform_name "{{ PHOTONICS_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain show_homepage_promo_video false
+    site-configuration set --domain=$domain show_partners false
+    site-configuration set --domain=$domain university "photonics"  
+    
+    # Not used anymore
+    # site-configuration set --domain=$domain course_index_overlay_logo_file "photonics/images/logo.png"
+    # site-configuration set --domain=$domain course_index_overlay_text "This is a {{ PHOTONICS_PLATFORM_NAME }} Microsite Course Overlay Text."
+    # site-configuration set --domain=$domain domain_prefix "photonics"
+done

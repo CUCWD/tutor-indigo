@@ -1,0 +1,219 @@
+<%page expression_filter="h"/>
+<%! from django.utils.translation import ugettext as _ %>
+<%namespace name='static' file='../static_content.html'/>
+<%
+course_mode_class = course_mode if course_mode else ''
+
+
+# Overrides
+# -----------------
+accomplishment_copy_description_full = _("having satisfactorily completed a course of instruction in")
+
+organization_short_name = "MEEP"
+# Translators:  This text represents the description of course
+accomplishment_copy_course_description = _('is awarded this {certificate_type} certificate of completion offered by ').format(
+    certificate_type=certificate_type)
+%>
+
+<main class="accomplishment accomplishment-main">
+
+    <div class="wrapper-accomplishment-rendering">
+        <div class="accomplishment-rendering">
+            <span class="deco-corner deco-corner-tl"></span>
+            <span class="deco-corner deco-corner-tr"></span>
+            <span class="deco-corner deco-corner-bl"></span>
+            <span class="deco-corner deco-corner-br"></span>
+
+            <div class="accomplishment-type">
+                <span class="accomplishment-type-symbol">
+                    <img class="src" src="/static/certificates/images/ico-${course_mode_class}.png" alt="Image for course mode of type ${course_mode_class}">
+                </span>
+
+                <span class="accomplishment-type-label hd-4">${document_title}</span>
+            </div>
+
+            <div class="accomplishment-certificate-of-completion">
+                <span class="accomplishment-certificate-of-completion-symbol">
+                     <img class="src" src="${static.url('certificates/images/certificate-of-completion-text.svg')}" alt="Certificate of Completion">
+                     <img class="src mobile" src="${static.url('certificates/images/certificate-of-completion-text-mobile.svg')}" alt="Certificate of Completion">
+                </span>
+            </div>
+
+            <div class="accomplishment-certificate-logo">
+                <span class="accomplishment-certificate-logo-symbol">
+                    <img class="src" src="${static.url('certificates/images/certificate-logo.svg')}" alt="Certificate ${organization_short_name} Logo">
+                </span>
+
+                <span class="accomplishment-type-label hd-3">${document_title}</span>
+            </div>
+
+            <div class="wrapper-statement-and-signatories">
+                <div class="accomplishment-statement">
+                    <p class="accomplishment-statement-lead">
+                        <strong class="accomplishment-recipient hd-1 emphasized">${accomplishment_copy_name}</strong>
+                        <span class="accomplishment-summary copy copy-lead">${accomplishment_copy_description_full}</span>
+
+                        <span class="accomplishment-course hd-1 emphasized">
+                            <!--<span class="accomplishment-course-org">${accomplishment_copy_course_org}  </span>
+                            <span class="accomplishment-course-number">${course_number}</span>:-->
+                            <span class="accomplishment-course-name">${accomplishment_copy_course_name}</span>
+                        </span>
+                    </p>
+
+                    <p class="accomplishment-statement-detail copy copy-lead">${accomplishment_copy_course_description}<br />${organization_short_name}.</p>
+                </div>
+
+                <div class="accomplishment-date">
+                    <p>
+                        <span class="accomplishment-date-detail copy copy-lead"><strong>${certificate_date_issued_title}</strong><span>${certificate_date_issued}</span></span>
+                    </p>
+                </div>
+
+                % if mode != 'base':
+                <div class="accomplishment-signatories">
+                    <h3 class="accomplishment-signatories-title sr-only">${_("Noted by")}</h3>
+
+                    <div class="wrapper-signatories">
+                        <div class="list-signatories">
+                            % if certificate_data:
+                                % for signatory in certificate_data.get('signatories', []):
+                                    % if signatory.get('signature_image_path'):
+                                        <div class="signatory">
+                                            <img class="signatory-signature" src="${static.url(signatory['signature_image_path'])}" alt="${signatory['name']}">
+
+                                            <h4 class="signatory-name hd-5">${signatory['name']}</h4>
+                                            <p class="signatory-credentials copy copy-micro">
+                                                <span class="role">${signatory['title']}</span>
+                                                <span class="organization">${signatory['organization']}</span>
+                                            </p>
+                                        </div>
+                                    % endif
+                                % endfor
+                            % endif
+                        </div>
+                    </div>
+                </div>
+                % endif
+            </div>
+
+            <div class="accomplishment-orgs">
+                <h3 class="accomplishment-orgs-title sr-only">${_("Supported by the following organizations")}</h3>
+
+                <ul class="wrapper-orgs list-orgs">
+                    <li class="wrapper-organization">
+                        <div class="organization organization-edX">
+                            <img class="organization-logo" src="${logo_src}" alt="${platform_name}">
+                        </div>
+                    </li>
+
+                    % if organization_logo:
+                    <li class="wrapper-organization">
+                        <div class="organization">
+                            <img class="organization-logo" src="${organization_logo.url}" alt="${platform_name}">
+                        </div>
+                    </li>
+                    % endif
+                </ul>
+            </div>
+
+            <div class="accomplishment-certificate-seal">
+                <span class="accomplishment-certificate-seal-symbol">
+                    <img class="src" src="${static.url('certificates/images/certificate-seal-gold.svg')}" alt="Certificate Seal">
+                    <div id="qrcode-certificate-seal"></div>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wrapper-accomplishment-metadata">
+        <div class="accomplishment-metadata">
+            <h2 class="accomplishment-metadata-title hd-6">${accomplishment_copy_more_about}</h2>
+
+            <div class="wrapper-metadata">
+                <dl class="metadata accomplishment-recipient">
+                    <dt class="label sr-only">${_("Awarded to:")}</dt>
+                    <dd class="value copy copy-meta">
+                        <span class="recipient-img">
+                            <img class="src" src="/static/certificates/images/demo-user-profile.png" alt="Recipient Image">
+                        </span>
+                        <div class="recipient-details">
+                            <h3 class="recipient-name">${accomplishment_copy_name}</h3>
+                            <p class="recipient-username">${accomplishment_copy_username} @ ${platform_name}</p>
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="metadata accomplishment-id">
+                    <dt class="label copy copy-meta">${certificate_id_number_title}:</dt>
+                    <dd class="value copy copy-base">${certificate_id_number}</dd>
+                </dl>
+                <dl class="metadata accomplishment-date">
+                    <dt class="label copy copy-meta">${certificate_date_issued_title}</dt>
+                    <dd class="value copy copy-base">${certificate_date_issued}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<%block name="js_extra">
+  <%static:js group='certificates_wv'/>
+    <script type="text/javascript" src="${static.url('certificates/js/qrcodejs/qrcode.js')}"></script>
+    <script type="text/javascript">
+
+        function setupQRCode() {
+                // Setup QR Code
+                var qrCodeCertificateSeal = new QRCode(document.getElementById("qrcode-certificate-seal"), {
+                    text: "${share_url}",
+                    width: 70,
+                    height: 70,
+                    colorDark: "#603c1b",
+                    colorLight: "#f4d075",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+                qrCodeCertificateSeal.makeCode("${share_url}");
+            }
+
+            function setupCourseNameFontSize() {
+
+                var $courseName = $(".accomplishment-rendering .accomplishment-course-name");
+                var $numWords = $courseName.text().split(" ").length;
+                var $fontSize = parseFloat($courseName.css("font-size"));
+
+                var $numCharacters = $courseName.text().length;
+
+                if ($numCharacters > 65) {
+                    $fontSize = 21;
+
+                    $courseName.parent().css({
+                        "margin-top": "-13px",
+                        "margin-bottom": "-12px",
+                        "line-height": "26.25px"
+                    });
+                }
+                else if (($numCharacters > 50) && $numCharacters <= 65) {
+                    $fontSize = 27;
+                }
+                else {
+                    // Use default font size.
+                }
+
+                $courseName.css({
+                    "font-size": $fontSize + "px",
+                    "display": "inline-block",
+                    "padding": "0px 225px"
+                });
+            }
+
+            function certficateSetup() {
+                setupCourseNameFontSize();
+                setupQRCode();
+            }
+
+        $(document).ready(function () {
+            certficateSetup();
+        });
+
+    </script>
+</%block>
