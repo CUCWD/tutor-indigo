@@ -78,6 +78,7 @@ do
     }
     " --json-argument
     site-configuration set --domain=$domain PLATFORM_NAME "{{ EDUCATEWORKFORCE_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain QUALTRICS_SCORE_ID "{{ EDUCATEWORKFORCE_QUALTRICS_SCORE_ID }}"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
     {% if EDUCATEWORKFORCE_SESSION_COOKIE_DOMAIN %}

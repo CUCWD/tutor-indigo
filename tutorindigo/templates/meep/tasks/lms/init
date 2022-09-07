@@ -78,6 +78,7 @@ do
     }
     " --json-argument
     site-configuration set --domain=$domain PLATFORM_NAME "{{ MEEP_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain QUALTRICS_SCORE_ID "{{ MEEP_QUALTRICS_SCORE_ID }}"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
     {% if MEEP_SESSION_COOKIE_DOMAIN %}

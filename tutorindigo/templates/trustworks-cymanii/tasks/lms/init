@@ -82,6 +82,7 @@ do
     }
     " --json-argument
     site-configuration set --domain=$domain PLATFORM_NAME "{{ TRUSTWORKS_CYMANII_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain QUALTRICS_SCORE_ID "{{ TRUSTWORKS_CYMANII_QUALTRICS_SCORE_ID }}"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
     {% if TRUSTWORKS_CYMANII_SESSION_COOKIE_DOMAIN %}

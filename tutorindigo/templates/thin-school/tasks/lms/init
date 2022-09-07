@@ -78,6 +78,7 @@ do
     }
     " --json-argument
     site-configuration set --domain=$domain PLATFORM_NAME "{{ THIN_SCHOOL_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain QUALTRICS_SCORE_ID "{{ THIN_SCHOOL_QUALTRICS_SCORE_ID }}"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
     {% if THIN_SCHOOL_SESSION_COOKIE_DOMAIN %}

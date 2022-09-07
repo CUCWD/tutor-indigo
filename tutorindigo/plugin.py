@@ -21,6 +21,10 @@ EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT = "cms.educateworkforce.com"
 EDUCATEWORKFORCE_SUPPORT_EMAIL = "support@educateworkforce.com"
 EDUCATEWORKFORCE_DEFAULT_FROM_EMAIL = "no-reply@educateworkforce.com"
 
+# Qualtrics Settings for `clemson.ca1`. Most surveys on EducateWorkforce use this for production, however,
+# you can override these should an organization want to use their own Qualtrics organization account (e.g. CyManII)
+EDUCATEWORKFORCE_QUALTRICS_SCORE_ID = "SC_8Joxltl97oYWdAa"
+
 ENVIRONMENT = "development"
 MKG_HOST = "localhost:8080"
 if "{{ LMS_HOST }}" == "{{ EDUCATEWORKFORCE_LMS_HOST_PROD_DEFAULT }}":
@@ -89,6 +93,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
         "CHOOSE_AEROSPACE": {
@@ -115,6 +120,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
         "EDUCATEWORKFORCE": {
@@ -141,6 +147,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
         "HARFORD_COMMUNITY_COLLEGE": {
@@ -167,6 +174,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
         "MEEP": {
@@ -193,6 +201,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
         "NCATECH": {
@@ -219,6 +228,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
         "PHOTONICS": {
@@ -245,6 +255,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
         "SPARTANBURG": {
@@ -271,6 +282,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
         "THIN_SCHOOL": {
@@ -297,6 +309,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
         "TRUSTWORKS_CYMANII": {
@@ -323,6 +336,7 @@ config = {
                 "FOOTER_LEGAL_LINKS": [
                     {"title": "Terms of Service", "url": "/tos"},
                 ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         }
     }

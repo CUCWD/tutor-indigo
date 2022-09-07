@@ -78,6 +78,7 @@ do
     }
     " --json-argument
     site-configuration set --domain=$domain PLATFORM_NAME "{{ CAREGIVER_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain QUALTRICS_SCORE_ID "{{ CAREGIVER_QUALTRICS_SCORE_ID }}"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
     {% if CAREGIVER_SESSION_COOKIE_DOMAIN %}
