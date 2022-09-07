@@ -369,7 +369,17 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 hooks.Filters.ENV_PATTERNS_INCLUDE.add_items(
     [
         # Include files from "partials" folders
-        r"(.*/)?partials(/.*)?$",
+        r"caregiver/lms/static/sass/partials/lms/theme/",
+        r"choose-aerospace/lms/static/sass/partials/lms/theme/",
+        r"educateworkforce/lms/static/sass/partials/lms/theme/",
+        r"harford-community-college/lms/static/sass/partials/lms/theme/",
+        r"indigo/lms/static/sass/partials/lms/theme/",
+        r"meep/lms/static/sass/partials/lms/theme/",
+        r"ncatech/lms/static/sass/partials/lms/theme/",
+        r"photonics/lms/static/sass/partials/lms/theme/",
+        r"spartanburg/lms/static/sass/partials/lms/theme/",
+        r"thin-school/lms/static/sass/partials/lms/theme/",
+        r"trustworks-cymanii/lms/static/sass/partials/lms/theme/",
     ]
 )
 
