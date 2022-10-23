@@ -27,7 +27,10 @@ EDUCATEWORKFORCE_QUALTRICS_SCORE_ID = "SC_8Joxltl97oYWdAa"
 
 ENVIRONMENT = "development"
 MKG_HOST = "localhost:8080"
-if "{{ LMS_HOST }}" == "{{ EDUCATEWORKFORCE_LMS_HOST_PROD_DEFAULT }}":
+
+# If the `tutor-educateworkforce-config` plugin has set the `BASE_DOMAIN` then we're in a staging or production environment.
+# This would indicate that the site is no in development environment.
+if "{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}":
     ENVIRONMENT = "production"
     MKG_HOST = "educateworkforce.com"
 
