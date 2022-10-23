@@ -1,0 +1,41 @@
+
+# Cargiver
+if "{% if ENABLE_HTTPS %}{{ CAREGIVER_LMS_HOST }}{% else %}{{ CAREGIVER_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ CAREGIVER_LMS_HOST }}{% else %}{{ CAREGIVER_LMS_HOST }}:8000{% endif %}")
+
+# Choose Aerospace
+if "{% if ENABLE_HTTPS %}{{ CHOOSE_AEROSPACE_LMS_HOST }}{% else %}{{ CHOOSE_AEROSPACE_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ CHOOSE_AEROSPACE_LMS_HOST }}{% else %}{{ CHOOSE_AEROSPACE_LMS_HOST }}:8000{% endif %}")
+
+# EducateWorkforce (this really is not needed because we define this a default LMS_HOST)
+# if "{% if ENABLE_HTTPS %}{{ EDUCATEWORKFORCE_LMS_HOST }}{% else %}{{ EDUCATEWORKFORCE_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+#     ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ EDUCATEWORKFORCE_LMS_HOST }}{% else %}{{ EDUCATEWORKFORCE_LMS_HOST }}:8000{% endif %}")
+
+# Harford Community College
+if "{% if ENABLE_HTTPS %}{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}{% else %}{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}{% else %}{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}:8000{% endif %}")
+
+# MEEP
+if "{% if ENABLE_HTTPS %}{{ MEEP_LMS_HOST }}{% else %}{{ MEEP_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ MEEP_LMS_HOST }}{% else %}{{ MEEP_LMS_HOST }}:8000{% endif %}")
+
+# NCATECH
+if "{% if ENABLE_HTTPS %}{{ NCATECH_LMS_HOST }}{% else %}{{ NCATECH_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ NCATECH_LMS_HOST }}{% else %}{{ NCATECH_LMS_HOST }}:8000{% endif %}")
+
+# MIT – AIM Photonics
+if "{% if ENABLE_HTTPS %}{{ PHOTONICS_LMS_HOST }}{% else %}{{ PHOTONICS_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ PHOTONICS_LMS_HOST }}{% else %}{{ PHOTONICS_LMS_HOST }}:8000{% endif %}")
+
+# SPARTANBURG
+if "{% if ENABLE_HTTPS %}{{ SPARTANBURG_LMS_HOST }}{% else %}{{ SPARTANBURG_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ SPARTANBURG_LMS_HOST }}{% else %}{{ SPARTANBURG_LMS_HOST }}:8000{% endif %}")
+
+# THIN_SCHOOL
+if "{% if ENABLE_HTTPS %}{{ THIN_SCHOOL_LMS_HOST }}{% else %}{{ THIN_SCHOOL_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ THIN_SCHOOL_LMS_HOST }}{% else %}{{ THIN_SCHOOL_LMS_HOST }}:8000{% endif %}")
+
+# TRUSTWORKS_CYMANII
+if "{% if ENABLE_HTTPS %}{{ TRUSTWORKS_CYMANII_LMS_HOST }}{% else %}{{ TRUSTWORKS_CYMANII_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{% if ENABLE_HTTPS %}{{ TRUSTWORKS_CYMANII_LMS_HOST }}{% else %}{{ TRUSTWORKS_CYMANII_LMS_HOST }}:8000{% endif %}")
+

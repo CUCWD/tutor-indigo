@@ -1,0 +1,200 @@
+
+# Caregiver
+{{ CAREGIVER_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# Choose Aerospace
+{{ CHOOSE_AEROSPACE_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# EducateWorkforce (this really is not needed because we define this a default LMS_HOST)
+#{{ EDUCATEWORKFORCE_LMS_HOST }}{$default_site_port} {
+#    @favicon_matcher {
+#        path_regexp ^/favicon.ico$
+#    }
+#    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+#    request_body /api/profile_images/*/*/upload {
+#        max_size 1MB
+#    }
+#    request_body {
+#        max_size 4MB
+#    }
+
+#    import proxy "lms:8000"
+
+#    {{ patch("caddyfile-lms")|indent(4) }}
+#}
+
+# Harford Community College
+{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# MEEP
+{{ MEEP_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# NCATECH
+{{ NCATECH_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# MIT – AIM Photonics
+{{ PHOTONICS_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# SPARTANBURG
+{{ SPARTANBURG_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# THIN_SCHOOL
+{{ THIN_SCHOOL_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# TRUSTWORKS_CYMANII
+{{ TRUSTWORKS_CYMANII_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}

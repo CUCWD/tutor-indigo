@@ -73,7 +73,7 @@ config = {
             "production": {
                 "LMS_HOST": "cargiver.{{ LMS_HOST }}", # "caregiver.educateworkforce.com",  # Need to update this to new domain structure `caregiver.courses.educateworkforce.com`.
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                # "SESSION_COOKIE_DOMAIN": "",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 # "MKG_ROOT_URL": "",
             },
@@ -100,7 +100,7 @@ config = {
             "production": {
                 "LMS_HOST": "chooseaerospace.{{ LMS_HOST }}", # "courses.chooseaerospace.org",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                "SESSION_COOKIE_DOMAIN": "courses.chooseaerospace.org",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}", # "courses.chooseaerospace.org"
                 "BADGR_ISSUER_SLUG": "3HNkqeHmRhe3-IEvYYNmcg",
                 "MKG_ROOT_URL": "learn.chooseaerospace.org",
             },
@@ -127,7 +127,7 @@ config = {
             "production": {
                 "LMS_HOST": EDUCATEWORKFORCE_LMS_HOST_PROD_DEFAULT,
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                # "SESSION_COOKIE_DOMAIN": "",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "XPPH2eGlT0KhekfWpCAWyA",
                 "MKG_ROOT_URL": "educateworkforce.com",
             },
@@ -154,7 +154,7 @@ config = {
             "production": {
                 "LMS_HOST": "harford.{{ LMS_HOST }}", # "harford.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                # "SESSION_COOKIE_DOMAIN": "",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "44bnWQE5TiSI7opBUIqyDA",
                 "MKG_ROOT_URL": "harford.educateworkforce.com",
             },
@@ -181,7 +181,7 @@ config = {
             "production": {
                 "LMS_HOST": "meep.{{ LMS_HOST }}", # "courses.meep.educateworkforce.com",  # Need to update this to new domain structure `meep.courses.educateworkforce.com`.
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                # "SESSION_COOKIE_DOMAIN": "",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "X_gnRW0hQ7G1ycy9e_8P2w",
                 "MKG_ROOT_URL": "meep.educateworkforce.com",
             },
@@ -208,7 +208,7 @@ config = {
             "production": {
                 "LMS_HOST": "ncatech.{{ LMS_HOST }}", # "ncatech.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                # "SESSION_COOKIE_DOMAIN": "",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "3EoLJ3pmR9KFCPVG9eLWZA",
                 "MKG_ROOT_URL": "ncatech.educateworkforce.com",
             },
@@ -235,7 +235,7 @@ config = {
             "production": {
                 "LMS_HOST": "photonics.{{ LMS_HOST }}", # "photonics.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                # "SESSION_COOKIE_DOMAIN": "",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "33j37WiUSV-lPUUtht5Pvw",
                 "MKG_ROOT_URL": "photonics.educateworkforce.com",
             },
@@ -262,7 +262,7 @@ config = {
             "production": {
                 "LMS_HOST": "spartanburg.{{ LMS_HOST }}", # "spartanburg.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                # "SESSION_COOKIE_DOMAIN": "",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "KJ2ni7CaRCe5eWxxj-nUcw",
                 "MKG_ROOT_URL": "spartanburg.educateworkforce.com",
             },
@@ -289,7 +289,7 @@ config = {
             "production": {
                 "LMS_HOST": "thin-school.{{ LMS_HOST }}", # "ts.educateworkforce.com",  # Need to update this to new domain structure `ts.courses.educateworkforce.com`.
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                # "SESSION_COOKIE_DOMAIN": "",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 # "MKG_ROOT_URL": "",
             },
@@ -316,7 +316,7 @@ config = {
             "production": {
                 "LMS_HOST": "trustworks-cymanii.{{ LMS_HOST }}", # "learn.trustworks.cymanii.org",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                "SESSION_COOKIE_DOMAIN": "learn.trustworks.cymanii.org",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}", # "learn.trustworks.cymanii.org"
                 "BADGR_ISSUER_SLUG": "SjuK7cxvS-eCi8h27e1hpQ",
                 "MKG_ROOT_URL": "trustworks.cymanii.org",
             },
