@@ -40,7 +40,7 @@ do
         \"BASE_URL\": \"{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ TRUSTWORKS_CYMANII_MFE_HOST }}\",
         \"LMS_BASE_URL\": \"{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ TRUSTWORKS_CYMANII_LMS_HOST }}\",
         \"LOGO_TRADEMARK_URL\": \"https://d8lc31ttblx40.cloudfront.net/branding/educateworkforce/logo.svg\",
-        \"LOGO_URL\": \"https://d8lc31ttblx40.cloudfront.net/branding/chooseaerospace/logo.svg\"
+        \"LOGO_URL\": \"https://d8lc31ttblx40.cloudfront.net/branding/trustworks-cymanii/logo.svg\"
     }
     " --json-argument
     site-configuration set --domain=$domain MFE_CONFIG_ACCOUNT \
