@@ -1,5 +1,8 @@
 
 # Caregiver
+# -----------------------------------------
+
+# LMS
 {{ CAREGIVER_LMS_HOST }}{$default_site_port} {
     @favicon_matcher {
         path_regexp ^/favicon.ico$
@@ -19,7 +22,19 @@
     {{ patch("caddyfile-lms")|indent(4) }}
 }
 
+# MFE
+{{ CAREGIVER_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe:8002"
+}
+
 # Choose Aerospace
+# -----------------------------------------
+
+# LMS
 {{ CHOOSE_AEROSPACE_LMS_HOST }}{$default_site_port} {
     @favicon_matcher {
         path_regexp ^/favicon.ico$
@@ -39,7 +54,18 @@
     {{ patch("caddyfile-lms")|indent(4) }}
 }
 
+# MFE
+{{ CHOOSE_AEROSPACE_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe:8002"
+}
+
 # EducateWorkforce (this really is not needed because we define this a default LMS_HOST)
+# -----------------------------------------
+
 #{{ EDUCATEWORKFORCE_LMS_HOST }}{$default_site_port} {
 #    @favicon_matcher {
 #        path_regexp ^/favicon.ico$
@@ -59,7 +85,19 @@
 #    {{ patch("caddyfile-lms")|indent(4) }}
 #}
 
+# MFE
+#{{ EDUCATEWORKFORCE_MFE_HOST }}{$default_site_port} {
+#    respond / 204
+#    request_body {
+#        max_size 2MB
+#    }
+#    import proxy "mfe:8002"
+#}
+
 # Harford Community College
+# -----------------------------------------
+
+# LMS
 {{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}{$default_site_port} {
     @favicon_matcher {
         path_regexp ^/favicon.ico$
@@ -79,7 +117,19 @@
     {{ patch("caddyfile-lms")|indent(4) }}
 }
 
+# MFE
+{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe:8002"
+}
+
 # MEEP
+# -----------------------------------------
+
+# LMS
 {{ MEEP_LMS_HOST }}{$default_site_port} {
     @favicon_matcher {
         path_regexp ^/favicon.ico$
@@ -99,7 +149,19 @@
     {{ patch("caddyfile-lms")|indent(4) }}
 }
 
+# MFE
+{{ MEEP_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe:8002"
+}
+
 # NCATECH
+# -----------------------------------------
+
+# LMS
 {{ NCATECH_LMS_HOST }}{$default_site_port} {
     @favicon_matcher {
         path_regexp ^/favicon.ico$
@@ -119,7 +181,19 @@
     {{ patch("caddyfile-lms")|indent(4) }}
 }
 
+# MFE
+{{ NCATECH_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe:8002"
+}
+
 # MIT – AIM Photonics
+# -----------------------------------------
+
+# LMS
 {{ PHOTONICS_LMS_HOST }}{$default_site_port} {
     @favicon_matcher {
         path_regexp ^/favicon.ico$
@@ -139,7 +213,19 @@
     {{ patch("caddyfile-lms")|indent(4) }}
 }
 
+# MFE
+{{ PHOTONICS_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe:8002"
+}
+
 # SPARTANBURG
+# -----------------------------------------
+
+# LMS
 {{ SPARTANBURG_LMS_HOST }}{$default_site_port} {
     @favicon_matcher {
         path_regexp ^/favicon.ico$
@@ -159,7 +245,19 @@
     {{ patch("caddyfile-lms")|indent(4) }}
 }
 
+# MFE
+{{ SPARTANBURG_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe:8002"
+}
+
 # THIN_SCHOOL
+# -----------------------------------------
+
+# LMS
 {{ THIN_SCHOOL_LMS_HOST }}{$default_site_port} {
     @favicon_matcher {
         path_regexp ^/favicon.ico$
@@ -179,7 +277,19 @@
     {{ patch("caddyfile-lms")|indent(4) }}
 }
 
+# MFE
+{{ THIN_SCHOOL_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe:8002"
+}
+
 # TRUSTWORKS_CYMANII
+# -----------------------------------------
+
+# LMS
 {{ TRUSTWORKS_CYMANII_LMS_HOST }}{$default_site_port} {
     @favicon_matcher {
         path_regexp ^/favicon.ico$
@@ -197,4 +307,13 @@
     import proxy "lms:8000"
 
     {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# MFE
+{{ TRUSTWORKS_CYMANII_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe:8002"
 }
