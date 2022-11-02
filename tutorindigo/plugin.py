@@ -74,7 +74,7 @@ config = {
     "sites": {
         "CAREGIVER": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.caregiver.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.caregiver.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": "caregiver.{{ LMS_HOST }}", # "caregiver.educateworkforce.com",  # Need to update this to new domain structure `caregiver.courses.educateworkforce.com`.
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.caregiver.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.caregiver.educateworkforce.com
@@ -104,7 +104,7 @@ config = {
         },
         "CHOOSE_AEROSPACE": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.chooseaerospace.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.chooseaerospace.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": "chooseaerospace.{{ LMS_HOST }}", # "courses.chooseaerospace.org",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.chooseaerospace.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.chooseaerospace.org
@@ -134,7 +134,7 @@ config = {
         },
         "EDUCATEWORKFORCE": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": EDUCATEWORKFORCE_LMS_HOST_PROD_DEFAULT,
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.educateworkforce.com
@@ -164,7 +164,7 @@ config = {
         },
         "HARFORD_COMMUNITY_COLLEGE": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.harford.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.harford.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": "harford.{{ LMS_HOST }}", # "harford.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.harford.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.harford.educateworkforce.com
@@ -194,7 +194,7 @@ config = {
         },
         "MEEP": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.meep.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.meep.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": "meep.{{ LMS_HOST }}", # "courses.meep.educateworkforce.com",  # Need to update this to new domain structure `meep.courses.educateworkforce.com`.
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.meep.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.meep.educateworkforce.com
@@ -224,7 +224,7 @@ config = {
         },
         "NCATECH": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.ncatech.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.ncatech.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": "ncatech.{{ LMS_HOST }}", # "ncatech.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.ncatech.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.ncatech.educateworkforce.com
@@ -254,7 +254,7 @@ config = {
         },
         "PHOTONICS": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.photonics.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.photonics.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": "photonics.{{ LMS_HOST }}", # "photonics.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.photonics.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.photonics.educateworkforce.com
@@ -284,7 +284,7 @@ config = {
         },
         "SPARTANBURG": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.spartanburg.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.spartanburg.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": "spartanburg.{{ LMS_HOST }}", # "spartanburg.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.spartanburg.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.spartanburg.educateworkforce.com
@@ -314,7 +314,7 @@ config = {
         },
         "THIN_SCHOOL": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.thin-school.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.thin-school.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": "thin-school.{{ LMS_HOST }}", # "ts.educateworkforce.com",  # Need to update this to new domain structure `ts.courses.educateworkforce.com`.
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.thin-school.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.thin-school.educateworkforce.com
@@ -344,7 +344,7 @@ config = {
         },
         "TRUSTWORKS_CYMANII": {
             "production": {
-                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.trustworks-cymanii.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "LEARNING_MICROFRONTEND_URL": "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://apps.trustworks-cymanii.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}/learning",
                 "LMS_HOST": "trustworks-cymanii.{{ LMS_HOST }}", # "learn.trustworks.cymanii.org",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.trustworks-cymanii.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.trustworks.cymanii.org
