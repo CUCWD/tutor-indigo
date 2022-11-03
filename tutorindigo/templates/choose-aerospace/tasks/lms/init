@@ -4,6 +4,7 @@
 for domain in "{{ CHOOSE_AEROSPACE_LMS_HOST }}" "{{ CHOOSE_AEROSPACE_LMS_HOST }}:8000"
 do
     # Platform Configuration
+    site-configuration set --domain=$domain ACCOUNT_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ CHOOSE_AEROSPACE_MFE_HOST }}/account"
     site-configuration set --domain=$domain ALLOW_AUTOMATED_SIGNUPS true
     site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_DASHBOARD_FOR_AUTHENTICATED_USER true
     site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_LOGIN_FOR_UNAUTHENTICATED_USER false
@@ -118,6 +119,7 @@ do
     }
     " --json-argument
     site-configuration set --domain=$domain PLATFORM_NAME "{{ CHOOSE_AEROSPACE_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain PROFILE_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ CHOOSE_AEROSPACE_MFE_HOST }}/profile/u/"
     site-configuration set --domain=$domain QUALTRICS_SCORE_ID "{{ CHOOSE_AEROSPACE_QUALTRICS_SCORE_ID }}"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
@@ -128,6 +130,7 @@ do
     site-configuration set --domain=$domain SHIB_DISABLE_TOS true
     site-configuration set --domain=$domain SITE_NAME $domain
     site-configuration set --domain=$domain SUPPORT_SITE_LINK "mailto:{{ CHOOSE_AEROSPACE_SUPPORT_EMAIL }}"
+    site-configuration set --domain=$domain WRITABLE_GRADEBOOK_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ CHOOSE_AEROSPACE_MFE_HOST }}/gradebook"
     
 
     # Additional Microsite Theming Configuration
