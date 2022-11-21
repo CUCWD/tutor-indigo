@@ -1,71 +1,77 @@
 
 # Caregiver
-if "{% if ENABLE_HTTPS %}{{ CAREGIVER_LMS_HOST }}{% else %}{{ CAREGIVER_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+if "{{ CAREGIVER_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ CAREGIVER_LMS_HOST }}")
     ALLOWED_HOSTS.append("{{ CAREGIVER_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ CAREGIVER_LMS_HOST }}{% else %}http://{{ CAREGIVER_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ CAREGIVER_MFE_HOST }}{% else %}http://{{ CAREGIVER_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ CAREGIVER_LMS_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ CAREGIVER_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
 # Choose Aerospace
-if "{% if ENABLE_HTTPS %}{{ CHOOSE_AEROSPACE_LMS_HOST }}{% else %}{{ CHOOSE_AEROSPACE_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+if "{{ CHOOSE_AEROSPACE_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ CHOOSE_AEROSPACE_LMS_HOST }}")
     ALLOWED_HOSTS.append("{{ CHOOSE_AEROSPACE_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ CHOOSE_AEROSPACE_LMS_HOST }}{% else %}http://{{ CHOOSE_AEROSPACE_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ CHOOSE_AEROSPACE_MFE_HOST }}{% else %}http://{{ CHOOSE_AEROSPACE_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ CHOOSE_AEROSPACE_LMS_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ CHOOSE_AEROSPACE_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
-# EducateWorkforce (this really is not needed because we define this a default LMS_HOST)
-# if "{% if ENABLE_HTTPS %}{{ EDUCATEWORKFORCE_LMS_HOST }}{% else %}{{ EDUCATEWORKFORCE_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
-#    ALLOWED_HOSTS.append("{{ EDUCATEWORKFORCE_LMS_HOST }}")
-#    ALLOWED_HOSTS.append("{{ EDUCATEWORKFORCE_MFE_HOST }}")
-#    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ EDUCATEWORKFORCE_LMS_HOST }}{% else %}http://{{ EDUCATEWORKFORCE_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-#    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ EDUCATEWORKFORCE_MFE_HOST }}{% else %}http://{{ EDUCATEWORKFORCE_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+# EducateWorkforce (default site)
+if "{{ EDUCATEWORKFORCE_LMS_HOST }}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{{ EDUCATEWORKFORCE_LMS_HOST }}")
 
-# Harford Community College4
-if "{% if ENABLE_HTTPS %}{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}{% else %}{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+if "{{ EDUCATEWORKFORCE_MFE_HOST }}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{{ EDUCATEWORKFORCE_MFE_HOST }}")
+
+if "https://{{ EDUCATEWORKFORCE_LMS_HOST }}" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://{{ EDUCATEWORKFORCE_LMS_HOST }}")
+
+if "https://{{ EDUCATEWORKFORCE_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://{{ EDUCATEWORKFORCE_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+
+# Harford Community College
+if "{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}")
     ALLOWED_HOSTS.append("{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}{% else %}http://{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}{% else %}http://{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
 # MEEP
-if "{% if ENABLE_HTTPS %}{{ MEEP_LMS_HOST }}{% else %}{{ MEEP_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+if "{{ MEEP_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ MEEP_LMS_HOST }}")
     ALLOWED_HOSTS.append("{{ MEEP_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ MEEP_LMS_HOST }}{% else %}http://{{ MEEP_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ MEEP_MFE_HOST }}{% else %}http://{{ MEEP_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ MEEP_LMS_HOST }}")
+    # CORS_ORIGIN_WHITELIST.append("https://{{ MEEP_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
 # NCATECH
-if "{% if ENABLE_HTTPS %}{{ NCATECH_LMS_HOST }}{% else %}{{ NCATECH_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+if "{{ NCATECH_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ NCATECH_LMS_HOST }}")
     ALLOWED_HOSTS.append("{{ NCATECH_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ NCATECH_LMS_HOST }}{% else %}http://{{ NCATECH_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ NCATECH_MFE_HOST }}{% else %}http://{{ NCATECH_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ NCATECH_LMS_HOST }}")
+    # CORS_ORIGIN_WHITELIST.append("https://{{ NCATECH_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
 # MIT – AIM Photonics
-if "{% if ENABLE_HTTPS %}{{ PHOTONICS_LMS_HOST }}{% else %}{{ PHOTONICS_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+if "{{ PHOTONICS_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ PHOTONICS_LMS_HOST }}")
     ALLOWED_HOSTS.append("{{ PHOTONICS_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ PHOTONICS_LMS_HOST }}{% else %}http://{{ PHOTONICS_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ PHOTONICS_MFE_HOST }}{% else %}http://{{ PHOTONICS_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ PHOTONICS_LMS_HOST }}")
+    # CORS_ORIGIN_WHITELIST.append("https://{{ PHOTONICS_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
 # SPARTANBURG
-if "{% if ENABLE_HTTPS %}{{ SPARTANBURG_LMS_HOST }}{% else %}{{ SPARTANBURG_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+if "{{ SPARTANBURG_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ SPARTANBURG_LMS_HOST }}")
     ALLOWED_HOSTS.append("{{ SPARTANBURG_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ SPARTANBURG_LMS_HOST }}{% else %}http://{{ SPARTANBURG_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ SPARTANBURG_MFE_HOST }}{% else %}http://{{ SPARTANBURG_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ SPARTANBURG_LMS_HOST }}")
+    # CORS_ORIGIN_WHITELIST.append("https://{{ SPARTANBURG_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
 # THIN_SCHOOL
-if "{% if ENABLE_HTTPS %}{{ THIN_SCHOOL_LMS_HOST }}{% else %}{{ THIN_SCHOOL_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+if "{{ THIN_SCHOOL_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ THIN_SCHOOL_LMS_HOST }}")
     ALLOWED_HOSTS.append("{{ THIN_SCHOOL_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ THIN_SCHOOL_LMS_HOST }}{% else %}http://{{ THIN_SCHOOL_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ THIN_SCHOOL_MFE_HOST }}{% else %}http://{{ THIN_SCHOOL_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ THIN_SCHOOL_LMS_HOST }}")
+    # CORS_ORIGIN_WHITELIST.append("https://{{ THIN_SCHOOL_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
 # TRUSTWORKS_CYMANII
-if "{% if ENABLE_HTTPS %}{{ TRUSTWORKS_CYMANII_LMS_HOST }}{% else %}{{ TRUSTWORKS_CYMANII_LMS_HOST }}:8000{% endif %}" not in ALLOWED_HOSTS:
+if "{{ TRUSTWORKS_CYMANII_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ TRUSTWORKS_CYMANII_LMS_HOST }}")
     ALLOWED_HOSTS.append("{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ TRUSTWORKS_CYMANII_LMS_HOST }}{% else %}http://{{ TRUSTWORKS_CYMANII_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}")
-    CORS_ORIGIN_WHITELIST.append("{% if ENABLE_HTTPS %}https://{{ TRUSTWORKS_CYMANII_MFE_HOST }}{% else %}http://{{ TRUSTWORKS_CYMANII_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}{% endif %}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ TRUSTWORKS_CYMANII_LMS_HOST }}")
+    # CORS_ORIGIN_WHITELIST.append("https://{{ TRUSTWORKS_CYMANII_MFE_HOST }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
