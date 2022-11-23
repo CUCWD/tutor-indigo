@@ -17,6 +17,7 @@ do
     {% endif %}
 
     site-configuration set --domain=$domain COURSE_ABOUT_VISIBILITY_PERMISSION "see_about_page"
+    site-configuration set --domain=$domain COURSE_CATALOG_API_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}:/{{ DISCOVERY_HOST }}/api/v1"
     site-configuration set --domain=$domain COURSE_CATALOG_VISIBILITY_PERMISSION "see_in_catalog"
     site-configuration set --domain=$domain COURSES_ARE_BROWSABLE false
     site-configuration set --domain=$domain ENABLE_ACCOUNT_LINKED_ACCOUNTS false
