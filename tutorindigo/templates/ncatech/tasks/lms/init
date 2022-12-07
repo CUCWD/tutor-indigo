@@ -30,7 +30,7 @@ do
     site-configuration set --domain=$domain ENABLE_THIRD_PARTY_AUTH true
     site-configuration set --domain=$domain DEFAULT_FROM_EMAIL "{{ NCATECH_DEFAULT_FROM_EMAIL }}"
     site-configuration set --domain=$domain FOOTER_ORGANIZATION_IMAGE "ncatech/images/logo-footer.png"
-    site-configuration set --domain=$domain LEARNING_MICROFRONTEND_URL "{{ NCATECH_LEARNING_MICROFRONTEND_URL }}"
+    site-configuration set --domain=$domain LEARNING_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ NCATECH_MFE_HOST }}/learning"
     site-configuration set --domain=$domain LMS_ROOT_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://$domain"
     site-configuration set --domain=$domain MFE_CONFIG \
     "
