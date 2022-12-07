@@ -315,5 +315,5 @@
     request_body {
         max_size 2MB
     }
-    import proxy "mfe:8002"
+    import proxy "mfe-trustworks-cymanii:8002"
 }
