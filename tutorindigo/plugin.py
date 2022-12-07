@@ -337,8 +337,8 @@ config = {
             "production": {
                 "LMS_HOST": "trustworks-cymanii.{{ LMS_HOST }}", # "learn.trustworks.cymanii.org",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
-                "MFE_HOST": "apps.trustworks-cymanii.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.trustworks.cymanii.org
-                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}", # "learn.trustworks.cymanii.org"
+                "MFE_HOST": "apps.learn.trustworks.cymanii.org",
+                "SESSION_COOKIE_DOMAIN": ".learn.trustworks.cymanii.org", # "learn.trustworks.cymanii.org"
                 "BADGR_ISSUER_SLUG": "SjuK7cxvS-eCi8h27e1hpQ",
                 "MKG_ROOT_URL": f"trustworks-cymanii.{MKG_HOST}", # "trustworks.cymanii.org"
             },
