@@ -79,7 +79,7 @@ config = {
                 "MFE_HOST": "apps.caregiver.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.caregiver.educateworkforce.com
                 "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
-                "MKG_ROOT_URL": f"caregiver.{MKG_HOST}",
+                # "MKG_ROOT_URL": f"caregiver.{MKG_HOST}",
             },
             "development": {
                 "LMS_HOST": "caregiver.{{ LMS_HOST }}",
@@ -137,7 +137,7 @@ config = {
                 "MFE_HOST": "apps.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.educateworkforce.com
                 "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "XPPH2eGlT0KhekfWpCAWyA",
-                "MKG_ROOT_URL": f"educateworkforce.{MKG_HOST}", # "educateworkforce.com"
+                "MKG_ROOT_URL": f"{MKG_HOST}", # "educateworkforce.com"
             },
             "development": {
                 "LMS_HOST": "educateworkforce.{{ LMS_HOST }}",
@@ -311,7 +311,7 @@ config = {
                 "MFE_HOST": "apps.thin-school.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.thin-school.educateworkforce.com
                 "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
-                "MKG_ROOT_URL": f"thin-school.{MKG_HOST}", 
+                # "MKG_ROOT_URL": f"thin-school.{MKG_HOST}", 
             },
             "development": {
                 "LMS_HOST": "thin-school.{{ LMS_HOST }}",
