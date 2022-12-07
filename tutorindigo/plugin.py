@@ -109,7 +109,7 @@ config = {
                 "LMS_HOST": "chooseaerospace.{{ LMS_HOST }}", # "courses.chooseaerospace.org",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.chooseaerospace.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.chooseaerospace.org
-                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}", # "courses.chooseaerospace.org"
+                "SESSION_COOKIE_DOMAIN": ".courses.chooseaerospace.org", # "courses.chooseaerospace.org"
                 "BADGR_ISSUER_SLUG": "3HNkqeHmRhe3-IEvYYNmcg",
                 "MKG_ROOT_URL": f"chooseaerospace.{MKG_HOST}", # "learn.chooseaerospace.org"
             },

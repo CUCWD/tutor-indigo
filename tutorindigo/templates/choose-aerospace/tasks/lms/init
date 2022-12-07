@@ -126,6 +126,7 @@ do
 
     {% if CHOOSE_AEROSPACE_SESSION_COOKIE_DOMAIN %}
     site-configuration set --domain=$domain SESSION_COOKIE_DOMAIN "{{ CHOOSE_AEROSPACE_SESSION_COOKIE_DOMAIN }}"
+    site-configuration set --domain=$domain SHARED_COOKIE_DOMAIN "{{ CHOOSE_AEROSPACE_SESSION_COOKIE_DOMAIN }}"
     {% endif %}
 
     site-configuration set --domain=$domain SHIB_DISABLE_TOS true
