@@ -60,7 +60,7 @@
     request_body {
         max_size 2MB
     }
-    import proxy "mfe:8002"
+    import proxy "mfe-chooseaerospace:8002"
 }
 
 # EducateWorkforce (this really is not needed because we define this a default LMS_HOST)
