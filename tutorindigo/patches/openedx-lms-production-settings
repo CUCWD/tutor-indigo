@@ -1,4 +1,8 @@
 
+# Third Party Auth (Clemson IdP)
+if "https://idp.clemson.edu" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://idp.clemson.edu")
+
 # Caregiver
 if "{{ CAREGIVER_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ CAREGIVER_LMS_HOST }}")
@@ -74,4 +78,5 @@ if "{{ TRUSTWORKS_CYMANII_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ TRUSTWORKS_CYMANII_LMS_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ TRUSTWORKS_CYMANII_BIGCOMMERCE_STORE }}")
 
