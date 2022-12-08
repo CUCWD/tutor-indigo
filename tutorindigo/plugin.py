@@ -335,6 +335,7 @@ config = {
         },
         "TRUSTWORKS_CYMANII": {
             "production": {
+                "BIGCOMMERCE_STORE": "trustworks.cymanii.org",
                 "LMS_HOST": "learn.trustworks.cymanii.org", 
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.learn.trustworks.cymanii.org",
@@ -343,6 +344,7 @@ config = {
                 "MKG_ROOT_URL": f"trustworks.cymanii.org", 
             },
             "development": {
+                "BIGCOMMERCE_STORE": "educateworkforce-development.mybigcommerce.com",
                 "LMS_HOST": "trustworks-cymanii.{{ LMS_HOST }}",
                 "CMS_HOST": "trustworks-cymanii.{{ CMS_HOST }}",
                 "MFE_HOST": "apps.trustworks-cymanii.{{ LMS_HOST }}",
