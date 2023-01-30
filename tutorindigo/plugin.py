@@ -392,6 +392,35 @@ config = {
                 ],
                 "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
+        },
+        "WATER_DROPS": {
+            "production": {
+                "LMS_HOST": "water-drops.{{ LMS_HOST }}", # "water-drops.educateworkforce.com",
+                "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
+                "MFE_HOST": "apps.water-drops.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.water-drops.educateworkforce.com
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
+                # "BADGR_ISSUER_SLUG": "",  # Todo: Need to set this up.
+                "MKG_ROOT_URL": f"water-drops.{MKG_HOST}", 
+            },
+            "development": {
+                "LMS_HOST": "water-drops.{{ LMS_HOST }}",
+                "CMS_HOST": "water-drops.{{ CMS_HOST }}",
+                "MFE_HOST": "apps.water-drops.{{ LMS_HOST }}",
+                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                # "BADGR_ISSUER_SLUG": "",
+                "MKG_ROOT_URL": f"water-drops.{MKG_HOST}",
+            },
+            "common": {
+                "PLATFORM_NAME": "{{ PLATFORM_NAME }} - REVVED",
+                "PRIMARY_COLOR": EDUCATEWORKFORCE_BLUE,
+                "FOOTER_NAV_LINKS": [
+                    {"title": "Contact", "url": "/contact"},
+                ],
+                "FOOTER_LEGAL_LINKS": [
+                    {"title": "Terms of Service", "url": "/tos"},
+                ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
+            }
         }
     }
 }
@@ -414,6 +443,7 @@ hooks.Filters.COMMANDS_INIT.add_items(
         ("lms", ("spartanburg", "tasks", "lms", "init")),
         ("lms", ("thin-school", "tasks", "lms", "init")),
         ("lms", ("trustworks-cymanii", "tasks", "lms", "init")),
+        ("lms", ("water-drops", "tasks", "lms", "init")),
     ]
 )
 
@@ -442,7 +472,8 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
         ("revved", "build/openedx/themes"),
         ("spartanburg", "build/openedx/themes"),
         ("thin-school", "build/openedx/themes"),
-        ("trustworks-cymanii", "build/openedx/themes")
+        ("trustworks-cymanii", "build/openedx/themes"),
+        ("water-drops", "build/openedx/themes")
     ],
 )
 
@@ -463,6 +494,7 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_items(
         r"spartanburg/lms/static/sass/partials/lms/theme/",
         r"thin-school/lms/static/sass/partials/lms/theme/",
         r"trustworks-cymanii/lms/static/sass/partials/lms/theme/",
+        r"water-drops/lms/static/sass/partials/lms/theme/",
     ]
 )
 
@@ -604,6 +636,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
 )
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [(f"TRUSTWORKS_CYMANII_{key}", value) for key, value in config["sites"]["TRUSTWORKS_CYMANII"]["common"].items()]
+)
+
+# Load all configuration entries for `water-drops`
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"WATER_DROPS_{key}", value) for key, value in config["defaults"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"WATER_DROPS_{key}", value) for key, value in config["sites"]["WATER_DROPS"][f"{ENVIRONMENT}"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"WATER_DROPS_{key}", value) for key, value in config["sites"]["WATER_DROPS"]["common"].items()]
 )
 
 # Load all patches from the "patches" folder
