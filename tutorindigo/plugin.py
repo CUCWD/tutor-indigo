@@ -275,6 +275,35 @@ config = {
                 "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
             }
         },
+        "REVVED": {
+            "production": {
+                "LMS_HOST": "revved.{{ LMS_HOST }}", # "revved.educateworkforce.com",
+                "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
+                "MFE_HOST": "apps.revved.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.revved.educateworkforce.com
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
+                # "BADGR_ISSUER_SLUG": "",  # Todo: Need to set this up.
+                "MKG_ROOT_URL": f"revved.{MKG_HOST}", 
+            },
+            "development": {
+                "LMS_HOST": "revved.{{ LMS_HOST }}",
+                "CMS_HOST": "revved.{{ CMS_HOST }}",
+                "MFE_HOST": "apps.revved.{{ LMS_HOST }}",
+                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                # "BADGR_ISSUER_SLUG": "",
+                "MKG_ROOT_URL": f"revved.{MKG_HOST}",
+            },
+            "common": {
+                "PLATFORM_NAME": "{{ PLATFORM_NAME }} - REVVED",
+                "PRIMARY_COLOR": EDUCATEWORKFORCE_BLUE,
+                "FOOTER_NAV_LINKS": [
+                    {"title": "Contact", "url": "/contact"},
+                ],
+                "FOOTER_LEGAL_LINKS": [
+                    {"title": "Terms of Service", "url": "/tos"},
+                ],
+                "QUALTRICS_SCORE_ID": EDUCATEWORKFORCE_QUALTRICS_SCORE_ID,
+            }
+        },
         "SPARTANBURG": {
             "production": {
                 "LMS_HOST": "spartanburg.{{ LMS_HOST }}", # "spartanburg.courses.educateworkforce.com",
@@ -381,6 +410,7 @@ hooks.Filters.COMMANDS_INIT.add_items(
         ("lms", ("meep", "tasks", "lms", "init")),
         ("lms", ("ncatech", "tasks", "lms", "init")),
         ("lms", ("photonics", "tasks", "lms", "init")),
+        ("lms", ("revved", "tasks", "lms", "init")),
         ("lms", ("spartanburg", "tasks", "lms", "init")),
         ("lms", ("thin-school", "tasks", "lms", "init")),
         ("lms", ("trustworks-cymanii", "tasks", "lms", "init")),
@@ -409,6 +439,7 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
         ("meep", "build/openedx/themes"),
         ("ncatech", "build/openedx/themes"),
         ("photonics", "build/openedx/themes"),
+        ("revved", "build/openedx/themes"),
         ("spartanburg", "build/openedx/themes"),
         ("thin-school", "build/openedx/themes"),
         ("trustworks-cymanii", "build/openedx/themes")
@@ -428,6 +459,7 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_items(
         r"meep/lms/static/sass/partials/lms/theme/",
         r"ncatech/lms/static/sass/partials/lms/theme/",
         r"photonics/lms/static/sass/partials/lms/theme/",
+        r"revved/lms/static/sass/partials/lms/theme/",
         r"spartanburg/lms/static/sass/partials/lms/theme/",
         r"thin-school/lms/static/sass/partials/lms/theme/",
         r"trustworks-cymanii/lms/static/sass/partials/lms/theme/",
@@ -528,6 +560,16 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
     [(f"PHOTONICS_{key}", value) for key, value in config["sites"]["PHOTONICS"]["common"].items()]
 )
 
+# Load all configuration entries for `revved`
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"REVVED_{key}", value) for key, value in config["defaults"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"REVVED_{key}", value) for key, value in config["sites"]["REVVED"][f"{ENVIRONMENT}"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"REVVED_{key}", value) for key, value in config["sites"]["REVVED"]["common"].items()]
+)
 
 # Load all configuration entries for `spartanburg`
 hooks.Filters.CONFIG_DEFAULTS.add_items(
