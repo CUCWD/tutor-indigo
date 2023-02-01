@@ -7,7 +7,7 @@ do
     site-configuration set --domain=$domain ACCOUNT_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ REVVED_MFE_HOST }}/account"
     site-configuration set --domain=$domain ALLOW_AUTOMATED_SIGNUPS true
     site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_DASHBOARD_FOR_AUTHENTICATED_USER true
-    site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_LOGIN_FOR_UNAUTHENTICATED_USER true
+    site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_LOGIN_FOR_UNAUTHENTICATED_USER false
     site-configuration set --domain=$domain AUTH_USE_SHIB false    
     site-configuration set --domain=$domain AUTH_USE_OPENID_PROVIDER true
     site-configuration set --domain=$domain AUTOMATIC_AUTH_FOR_TESTING false
@@ -23,7 +23,7 @@ do
     site-configuration set --domain=$domain ENABLE_COMBINED_LOGIN_REGISTRATION true
     site-configuration set --domain=$domain ENABLE_COURSE_DISCOVERY false
     site-configuration set --domain=$domain ENABLE_DASHBOARD_SEARCH true
-    site-configuration set --domain=$domain ENABLE_MKTG_SITE false    
+    site-configuration set --domain=$domain ENABLE_MKTG_SITE true    
     site-configuration set --domain=$domain ENABLE_PAID_COURSE_REGISTRATION true
     site-configuration set --domain=$domain ENABLE_PROFILE_MICROFRONTEND true
     site-configuration set --domain=$domain ENABLE_SHOPPING_CART true
@@ -150,10 +150,10 @@ do
     site-configuration set --domain=$domain platform_name "{{ REVVED_PLATFORM_NAME }}"
     site-configuration set --domain=$domain show_homepage_promo_video false
     site-configuration set --domain=$domain show_partners false
-    site-configuration set --domain=$domain university "ts"  
+    site-configuration set --domain=$domain university "revved"  
     
     # Not used anymore
     # site-configuration set --domain=$domain course_index_overlay_logo_file "revved/images/logo.png"
     # site-configuration set --domain=$domain course_index_overlay_text "This is a {{ REVVED_PLATFORM_NAME }} Microsite Course Overlay Text."
-    # site-configuration set --domain=$domain domain_prefix "ts"
+    # site-configuration set --domain=$domain domain_prefix "revved"
 done
