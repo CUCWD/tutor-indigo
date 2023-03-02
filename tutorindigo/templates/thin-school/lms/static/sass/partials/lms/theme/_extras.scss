@@ -198,12 +198,16 @@ nav.wrapper-preview-menu {
       display: none;
   }
   .copyright {
-      display: none;
+      display: block;
   }
   .nav-legal ul {
       display: inline-block;
   }
   footer#footer-openedx .footer-about-openedx {
+
+      // Hide this for now since CUCWD doesn't want to show that we run Open edX.
+      display: none !important;
+
       a {
           float: none;
       }
