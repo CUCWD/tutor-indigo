@@ -121,7 +121,6 @@ do
     " --json-argument
     site-configuration set --domain=$domain PLATFORM_NAME "{{ EDUCATEWORKFORCE_PLATFORM_NAME }}"
     site-configuration set --domain=$domain PROFILE_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ EDUCATEWORKFORCE_MFE_HOST }}/profile/u/"
-    site-configuration set --domain=$domain QUALTRICS_SCORE_ID "{{ EDUCATEWORKFORCE_QUALTRICS_SCORE_ID }}"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
     {% if EDUCATEWORKFORCE_SESSION_COOKIE_DOMAIN %}

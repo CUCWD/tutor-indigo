@@ -121,7 +121,6 @@ do
     " --json-argument
     site-configuration set --domain=$domain PLATFORM_NAME "{{ HARFORD_COMMUNITY_COLLEGE_PLATFORM_NAME }}"
     site-configuration set --domain=$domain PROFILE_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}/profile/u/"
-    site-configuration set --domain=$domain QUALTRICS_SCORE_ID "{{ HARFORD_COMMUNITY_COLLEGE_QUALTRICS_SCORE_ID }}"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
     {% if HARFORD_COMMUNITY_COLLEGE_SESSION_COOKIE_DOMAIN %}
