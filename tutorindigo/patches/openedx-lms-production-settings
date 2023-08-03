@@ -3,6 +3,10 @@
 if "https://idp.clemson.edu" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://idp.clemson.edu")
 
+# Clemson Canvas
+if "https://clemson.instructure.com" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://clemson.instructure.com")
+
 # Caregiver
 if "{{ CAREGIVER_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ CAREGIVER_LMS_HOST }}")
