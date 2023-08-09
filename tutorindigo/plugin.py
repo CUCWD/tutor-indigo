@@ -292,6 +292,34 @@ config = {
                 ],
             }
         },
+        "REVVED_TRIDENTTECH": {
+            "production": {
+                "LMS_HOST": "revved-tridenttech.{{ LMS_HOST }}", # "revved-tridenttech.courses.educateworkforce.com",
+                "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
+                "MFE_HOST": "apps.revved-tridenttech.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.revved-tridenttech.educateworkforce.com
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
+                # "BADGR_ISSUER_SLUG": "",  # Todo: Need to set this up.
+                "MKG_ROOT_URL": f"revved.{MKG_HOST}", 
+            },
+            "development": {
+                "LMS_HOST": "revved-tridenttech.{{ LMS_HOST }}",
+                "CMS_HOST": "revved-tridenttech.{{ CMS_HOST }}",
+                "MFE_HOST": "apps.revved-tridenttech.{{ LMS_HOST }}",
+                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                # "BADGR_ISSUER_SLUG": "",
+                "MKG_ROOT_URL": f"revved.{MKG_HOST}",
+            },
+            "common": {
+                "PLATFORM_NAME": "{{ PLATFORM_NAME }} - REVVED - Trident Technical College",
+                "PRIMARY_COLOR": EDUCATEWORKFORCE_BLUE,
+                "FOOTER_NAV_LINKS": [
+                    {"title": "Contact", "url": "/contact"},
+                ],
+                "FOOTER_LEGAL_LINKS": [
+                    {"title": "Terms of Service", "url": "/tos"},
+                ],
+            }
+        },
         "SPARTANBURG": {
             "production": {
                 "LMS_HOST": "spartanburg.{{ LMS_HOST }}", # "spartanburg.courses.educateworkforce.com",
@@ -424,6 +452,7 @@ hooks.Filters.COMMANDS_INIT.add_items(
         ("lms", ("ncatech", "tasks", "lms", "init")),
         ("lms", ("photonics", "tasks", "lms", "init")),
         ("lms", ("revved", "tasks", "lms", "init")),
+        ("lms", ("revved-tridenttech", "tasks", "lms", "init")),
         ("lms", ("spartanburg", "tasks", "lms", "init")),
         ("lms", ("thin-school", "tasks", "lms", "init")),
         ("lms", ("trustworks-cymanii", "tasks", "lms", "init")),
@@ -454,6 +483,7 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
         ("ncatech", "build/openedx/themes"),
         ("photonics", "build/openedx/themes"),
         ("revved", "build/openedx/themes"),
+        ("revved-tridenttech", "build/openedx/themes"),
         ("spartanburg", "build/openedx/themes"),
         ("thin-school", "build/openedx/themes"),
         ("trustworks-cymanii", "build/openedx/themes"),
@@ -475,6 +505,7 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_items(
         r"ncatech/lms/static/sass/partials/lms/theme/",
         r"photonics/lms/static/sass/partials/lms/theme/",
         r"revved/lms/static/sass/partials/lms/theme/",
+        r"revved-tridenttech/lms/static/sass/partials/lms/theme/",
         r"spartanburg/lms/static/sass/partials/lms/theme/",
         r"thin-school/lms/static/sass/partials/lms/theme/",
         r"trustworks-cymanii/lms/static/sass/partials/lms/theme/",
@@ -585,6 +616,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
 )
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [(f"REVVED_{key}", value) for key, value in config["sites"]["REVVED"]["common"].items()]
+)
+
+# Load all configuration entries for `revved-tridenttech`
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"REVVED_TRIDENTTECH_{key}", value) for key, value in config["defaults"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"REVVED_TRIDENTTECH_{key}", value) for key, value in config["sites"]["REVVED_TRIDENTTECH"][f"{ENVIRONMENT}"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"REVVED_TRIDENTTECH_{key}", value) for key, value in config["sites"]["REVVED_TRIDENTTECH"]["common"].items()]
 )
 
 # Load all configuration entries for `spartanburg`
