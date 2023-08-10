@@ -68,6 +68,13 @@ if "{{ REVVED_GVLTEC_LMS_HOST }}" not in ALLOWED_HOSTS:
     CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_GVLTEC_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
     # CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_GVLTEC_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
+# REVVED – Spartanburg Community College
+if "{{ REVVED_SCCSC_LMS_HOST }}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{{ REVVED_SCCSC_LMS_HOST }}")
+    ALLOWED_HOSTS.append("{{ REVVED_SCCSC_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_SCCSC_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
+    # CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_SCCSC_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+
 # REVVED – Trident Technical College
 if "{{ REVVED_TRIDENTTECH_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ REVVED_TRIDENTTECH_LMS_HOST }}")
