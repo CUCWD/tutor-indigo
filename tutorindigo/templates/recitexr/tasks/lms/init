@@ -1,10 +1,10 @@
 
-# Initialize Site Configuration for WATERDROPS
+# Initialize Site Configuration for RECITEXR
 
-for domain in "{{ WATER_DROPS_LMS_HOST }}" "{{ WATER_DROPS_LMS_HOST }}:8000"
+for domain in "{{ RECITEXR_LMS_HOST }}" "{{ RECITEXR_LMS_HOST }}:8000"
 do
     # Platform Configuration
-    site-configuration set --domain=$domain ACCOUNT_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ WATER_DROPS_MFE_HOST }}/account"
+    site-configuration set --domain=$domain ACCOUNT_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ RECITEXR_MFE_HOST }}/account"
     site-configuration set --domain=$domain ALLOW_AUTOMATED_SIGNUPS true
     site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_DASHBOARD_FOR_AUTHENTICATED_USER true
     site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_LOGIN_FOR_UNAUTHENTICATED_USER false
@@ -12,8 +12,8 @@ do
     site-configuration set --domain=$domain AUTH_USE_OPENID_PROVIDER true
     site-configuration set --domain=$domain AUTOMATIC_AUTH_FOR_TESTING false
 
-    {% if WATER_DROPS_BADGR_ISSUER_SLUG %}
-    site-configuration set --domain=$domain BADGR_ISSUER_SLUG "{{ WATER_DROPS_BADGR_ISSUER_SLUG }}"
+    {% if RECITEXR_BADGR_ISSUER_SLUG %}
+    site-configuration set --domain=$domain BADGR_ISSUER_SLUG "{{ RECITEXR_BADGR_ISSUER_SLUG }}"
     {% endif %}
 
     site-configuration set --domain=$domain COURSE_ABOUT_VISIBILITY_PERMISSION "see_about_page"
@@ -28,17 +28,17 @@ do
     site-configuration set --domain=$domain ENABLE_PROFILE_MICROFRONTEND true
     site-configuration set --domain=$domain ENABLE_SHOPPING_CART true
     site-configuration set --domain=$domain ENABLE_THIRD_PARTY_AUTH true
-    site-configuration set --domain=$domain DEFAULT_FROM_EMAIL "{{ WATER_DROPS_DEFAULT_FROM_EMAIL }}"
-    site-configuration set --domain=$domain FOOTER_ORGANIZATION_IMAGE "water-drops/images/logo-footer.png"
-    site-configuration set --domain=$domain LEARNING_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ WATER_DROPS_MFE_HOST }}/learning"
+    site-configuration set --domain=$domain DEFAULT_FROM_EMAIL "{{ RECITEXR_DEFAULT_FROM_EMAIL }}"
+    site-configuration set --domain=$domain FOOTER_ORGANIZATION_IMAGE "recitexr/images/logo-footer.png"
+    site-configuration set --domain=$domain LEARNING_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ RECITEXR_MFE_HOST }}/learning"
     site-configuration set --domain=$domain LMS_ROOT_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://$domain"
     site-configuration set --domain=$domain MFE_CONFIG \
     "
     {
-        \"BASE_URL\": \"{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ WATER_DROPS_MFE_HOST }}\",
-        \"LMS_BASE_URL\": \"{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ WATER_DROPS_LMS_HOST }}\",
+        \"BASE_URL\": \"{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ RECITEXR_MFE_HOST }}\",
+        \"LMS_BASE_URL\": \"{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ RECITEXR_LMS_HOST }}\",
         \"LOGO_TRADEMARK_URL\": \"https://d8lc31ttblx40.cloudfront.net/branding/educateworkforce/logo.svg\",
-        \"LOGO_URL\": \"https://d8lc31ttblx40.cloudfront.net/branding/water-drops/logo.svg\"
+        \"LOGO_URL\": \"https://d8lc31ttblx40.cloudfront.net/branding/recitexr/logo.svg\"
     }
     " --json-argument
     site-configuration set --domain=$domain MFE_CONFIG_ACCOUNT \
@@ -110,7 +110,7 @@ do
         \"PRESS\": null,
         \"PRIVACY\": null,
         \"RESOURCES\": \"/resources\",
-        \"ROOT\": \"{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ WATER_DROPS_MKG_ROOT_URL }}\",
+        \"ROOT\": \"{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ RECITEXR_MKG_ROOT_URL }}\",
         \"SCHOOLS\": null,
         \"SITE_MAP\": null,
         \"TRADEMARKS\": null,
@@ -119,40 +119,40 @@ do
         \"WHAT_IS_VERIFIED_CERT\": null
     }
     " --json-argument
-    site-configuration set --domain=$domain PLATFORM_NAME "{{ WATER_DROPS_PLATFORM_NAME }}"
-    site-configuration set --domain=$domain PROFILE_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ WATER_DROPS_MFE_HOST }}/profile/u/"
+    site-configuration set --domain=$domain PLATFORM_NAME "{{ RECITEXR_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain PROFILE_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ RECITEXR_MFE_HOST }}/profile/u/"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
-    {% if WATER_DROPS_SESSION_COOKIE_DOMAIN %}
-    site-configuration set --domain=$domain SESSION_COOKIE_DOMAIN "{{ WATER_DROPS_SESSION_COOKIE_DOMAIN }}"
+    {% if RECITEXR_SESSION_COOKIE_DOMAIN %}
+    site-configuration set --domain=$domain SESSION_COOKIE_DOMAIN "{{ RECITEXR_SESSION_COOKIE_DOMAIN }}"
     {% endif %}
 
     site-configuration set --domain=$domain SHIB_DISABLE_TOS true
     site-configuration set --domain=$domain SITE_NAME $domain
-    site-configuration set --domain=$domain SUPPORT_SITE_LINK "mailto:{{ WATER_DROPS_SUPPORT_EMAIL }}"
-    site-configuration set --domain=$domain WRITABLE_GRADEBOOK_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ WATER_DROPS_MFE_HOST }}/gradebook"
+    site-configuration set --domain=$domain SUPPORT_SITE_LINK "mailto:{{ RECITEXR_SUPPORT_EMAIL }}"
+    site-configuration set --domain=$domain WRITABLE_GRADEBOOK_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ RECITEXR_MFE_HOST }}/gradebook"
     
 
     # Additional Microsite Theming Configuration
     # https://github.com/openedx/edx-platform/wiki/Microsites-Theming
-    site-configuration set --domain=$domain course_email_from_addr "{{ WATER_DROPS_DEFAULT_FROM_EMAIL }}"
-    site-configuration set --domain=$domain course_org_filter "WATERDROPS"
-    site-configuration set --domain=$domain contact_mailing_address "{{ WATER_DROPS_SUPPORT_EMAIL }}"
+    site-configuration set --domain=$domain course_email_from_addr "{{ RECITEXR_DEFAULT_FROM_EMAIL }}"
+    site-configuration set --domain=$domain course_org_filter "RECITEXR"
+    site-configuration set --domain=$domain contact_mailing_address "{{ RECITEXR_SUPPORT_EMAIL }}"
     site-configuration set --domain=$domain course_about_facebook_link ""
     site-configuration set --domain=$domain course_about_show_social_links false
     site-configuration set --domain=$domain course_about_twitter_account ""
-    site-configuration set --domain=$domain css_overrides_file "water-drops/css/override.css"
-    site-configuration set --domain=$domain email_from_address "{{ WATER_DROPS_DEFAULT_FROM_EMAIL }}"
-    site-configuration set --domain=$domain favicon_path "water-drops/images/favicon.ico"
-    site-configuration set --domain=$domain homepage_overlay_html "<h1>This is a {{ WATER_DROPS_PLATFORM_NAME }} Microsite Homepage Overlay HTML</h1>"
-    site-configuration set --domain=$domain logo_image_url "water-drops/images/logo.png"
-    site-configuration set --domain=$domain platform_name "{{ WATER_DROPS_PLATFORM_NAME }}"
+    site-configuration set --domain=$domain css_overrides_file "recitexr/css/override.css"
+    site-configuration set --domain=$domain email_from_address "{{ RECITEXR_DEFAULT_FROM_EMAIL }}"
+    site-configuration set --domain=$domain favicon_path "recitexr/images/favicon.ico"
+    site-configuration set --domain=$domain homepage_overlay_html "<h1>This is a {{ RECITEXR_PLATFORM_NAME }} Microsite Homepage Overlay HTML</h1>"
+    site-configuration set --domain=$domain logo_image_url "recitexr/images/logo.png"
+    site-configuration set --domain=$domain platform_name "{{ RECITEXR_PLATFORM_NAME }}"
     site-configuration set --domain=$domain show_homepage_promo_video false
     site-configuration set --domain=$domain show_partners false
-    site-configuration set --domain=$domain university "waterdrops"  
+    site-configuration set --domain=$domain university "recitexr"  
     
     # Not used anymore
-    # site-configuration set --domain=$domain course_index_overlay_logo_file "water-drops/images/logo.png"
-    # site-configuration set --domain=$domain course_index_overlay_text "This is a {{ WATER_DROPS_PLATFORM_NAME }} Microsite Course Overlay Text."
-    # site-configuration set --domain=$domain domain_prefix "water-drops"
+    # site-configuration set --domain=$domain course_index_overlay_logo_file "recitexr/images/logo.png"
+    # site-configuration set --domain=$domain course_index_overlay_text "This is a {{ RECITEXR_PLATFORM_NAME }} Microsite Course Overlay Text."
+    # site-configuration set --domain=$domain domain_prefix "recitexr"
 done
