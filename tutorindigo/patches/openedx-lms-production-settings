@@ -1,11 +1,40 @@
+#################### Third Party Auth Settings #######################
 
-# Third Party Auth (Clemson IdP)
+# Clemson IdP
 if "https://idp.clemson.edu" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://idp.clemson.edu")
+
+if "https://idp.app.clemson.edu" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://idp.app.clemson.edu")
+
+#################### External LTI Consumer Settings #######################
 
 # Clemson Canvas
 if "https://clemson.instructure.com" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://clemson.instructure.com")
+
+# Des Moines Public Schools
+if "https://dmschools.instructure.com" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://dmschools.instructure.com")
+
+# McKinney North High School
+if "https://canvas.mckinneyisd.net" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://canvas.mckinneyisd.net")
+
+# Securus Lantern LMS (Canvas)
+if "https://lms.qatest.lanternlms.com" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://lms.qatest.lanternlms.com")
+
+# Southern Tech (Canvas)
+if "https://sotc.instructure.com" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://sotc.instructure.com")
+
+# Tulsa Public Schools (Canvas)
+# - East Central High School
+if "https://tulsaps.instructure.com" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://tulsaps.instructure.com")
+
+#################### Subsite Settings #######################
 
 # Caregiver
 if "{{ CAREGIVER_LMS_HOST }}" not in ALLOWED_HOSTS:
