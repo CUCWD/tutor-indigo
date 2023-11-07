@@ -54,6 +54,13 @@ if "{{ PHOTONICS_LMS_HOST }}" not in ALLOWED_HOSTS:
     CORS_ORIGIN_WHITELIST.append("http://{{ PHOTONICS_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
     # CORS_ORIGIN_WHITELIST.append("http://{{ PHOTONICS_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
 
+# RECITEXR
+if "{{ RECITEXR_LMS_HOST }}" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("{{ RECITEXR_LMS_HOST }}")
+    ALLOWED_HOSTS.append("{{ RECITEXR_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("http://{{ RECITEXR_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
+    # CORS_ORIGIN_WHITELIST.append("http://{{ RECITEXR_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+
 # REVVED
 if "{{ REVVED_LMS_HOST }}" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("{{ REVVED_LMS_HOST }}")

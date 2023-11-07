@@ -70,7 +70,7 @@ config = {
     "sites": {
         "CAREGIVER": {
             "production": {
-                "LMS_HOST": "caregiver.{{ LMS_HOST }}", # "caregiver.educateworkforce.com",  # Need to update this to new domain structure `caregiver.courses.educateworkforce.com`.
+                "LMS_HOST": "caregiver.{{ LMS_HOST }}", # "caregiver.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.caregiver.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.caregiver.educateworkforce.com
                 "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
@@ -126,7 +126,7 @@ config = {
         },
         "EDUCATEWORKFORCE": {
             "production": {
-                "LMS_HOST": EDUCATEWORKFORCE_LMS_HOST_PROD_DEFAULT,
+                "LMS_HOST": EDUCATEWORKFORCE_LMS_HOST_PROD_DEFAULT, # "courses.educateowrkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.educateworkforce.com
                 "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
@@ -182,7 +182,7 @@ config = {
         },
         "MEEP": {
             "production": {
-                "LMS_HOST": "meep.{{ LMS_HOST }}", # "courses.meep.educateworkforce.com",  # Need to update this to new domain structure `meep.courses.educateworkforce.com`.
+                "LMS_HOST": "meep.{{ LMS_HOST }}", # "meep.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.meep.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.meep.educateworkforce.com
                 "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
@@ -264,9 +264,37 @@ config = {
                 ],
             }
         },
+        "RECITEXR": {
+            "production": {
+                "LMS_HOST": "recitexr.{{ LMS_HOST }}", # "recitexr.courses.educateworkforce.com",
+                "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
+                "MFE_HOST": "apps.recitexr.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.recitexr.educateworkforce.com
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
+                # "BADGR_ISSUER_SLUG": "",  # Todo: Need to set this up.
+                "MKG_ROOT_URL": f"recitexr.{MKG_HOST}", 
+            },
+            "development": {
+                "LMS_HOST": "recitexr.{{ LMS_HOST }}",
+                "CMS_HOST": "recitexr.{{ CMS_HOST }}",
+                "MFE_HOST": "apps.recitexr.{{ LMS_HOST }}",
+                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                # "BADGR_ISSUER_SLUG": "",
+                "MKG_ROOT_URL": f"recitexr.{MKG_HOST}",
+            },
+            "common": {
+                "PLATFORM_NAME": "{{ PLATFORM_NAME }} - REVVED",
+                "PRIMARY_COLOR": EDUCATEWORKFORCE_BLUE,
+                "FOOTER_NAV_LINKS": [
+                    {"title": "Contact", "url": "/contact"},
+                ],
+                "FOOTER_LEGAL_LINKS": [
+                    {"title": "Terms of Service", "url": "/tos"},
+                ],
+            }
+        },
         "REVVED": {
             "production": {
-                "LMS_HOST": "revved.{{ LMS_HOST }}", # "revved.educateworkforce.com",
+                "LMS_HOST": "revved.{{ LMS_HOST }}", # "revved.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.revved.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.revved.educateworkforce.com
                 "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
@@ -406,7 +434,7 @@ config = {
         },
         "THIN_SCHOOL": {
             "production": {
-                "LMS_HOST": "thin-school.{{ LMS_HOST }}", # "ts.educateworkforce.com",  # Need to update this to new domain structure `ts.courses.educateworkforce.com`.
+                "LMS_HOST": "thin-school.{{ LMS_HOST }}", # "ts.courses.educateworkforce.com",  # Need to update this to new domain structure `ts.courses.educateworkforce.com`.
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.thin-school.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.thin-school.educateworkforce.com
                 "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
@@ -464,7 +492,7 @@ config = {
         },
         "WATER_DROPS": {
             "production": {
-                "LMS_HOST": "water-drops.{{ LMS_HOST }}", # "water-drops.educateworkforce.com",
+                "LMS_HOST": "water-drops.{{ LMS_HOST }}", # "water-drops.courses.educateworkforce.com",
                 "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
                 "MFE_HOST": "apps.water-drops.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}", # apps.water-drops.educateworkforce.com
                 "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
@@ -507,6 +535,7 @@ hooks.Filters.COMMANDS_INIT.add_items(
         ("lms", ("meep", "tasks", "lms", "init")),
         ("lms", ("ncatech", "tasks", "lms", "init")),
         ("lms", ("photonics", "tasks", "lms", "init")),
+        ("lms", ("recitexr", "tasks", "lms", "init")),
         ("lms", ("revved", "tasks", "lms", "init")),
         ("lms", ("revved-gvltec", "tasks", "lms", "init")),
         ("lms", ("revved-sccsc", "tasks", "lms", "init")),
@@ -540,6 +569,7 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
         ("meep", "build/openedx/themes"),
         ("ncatech", "build/openedx/themes"),
         ("photonics", "build/openedx/themes"),
+        ("recitexr", "build/openedx/themes"),
         ("revved", "build/openedx/themes"),
         ("revved-gvltec", "build/openedx/themes"),
         ("revved-sccsc", "build/openedx/themes"),
@@ -564,6 +594,7 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_items(
         r"meep/lms/static/sass/partials/lms/theme/",
         r"ncatech/lms/static/sass/partials/lms/theme/",
         r"photonics/lms/static/sass/partials/lms/theme/",
+        r"recitexr/lms/static/sass/partials/lms/theme/",
         r"revved/lms/static/sass/partials/lms/theme/",
         r"revved-gvltec/lms/static/sass/partials/lms/theme/",
         r"revved-sccsc/lms/static/sass/partials/lms/theme/",
@@ -667,6 +698,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
 )
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [(f"PHOTONICS_{key}", value) for key, value in config["sites"]["PHOTONICS"]["common"].items()]
+)
+
+# Load all configuration entries for `recitexr`
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"RECITEXR_{key}", value) for key, value in config["defaults"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"RECITEXR_{key}", value) for key, value in config["sites"]["RECITEXR"][f"{ENVIRONMENT}"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"RECITEXR_{key}", value) for key, value in config["sites"]["RECITEXR"]["common"].items()]
 )
 
 # Load all configuration entries for `revved`
