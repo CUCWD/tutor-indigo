@@ -1,5 +1,5 @@
 
-# Initialize Site Configuration for REVVED
+# Initialize Site Configuration for WATERDROPS
 
 for domain in "{{ WATER_DROPS_LMS_HOST }}" "{{ WATER_DROPS_LMS_HOST }}:8000"
 do
