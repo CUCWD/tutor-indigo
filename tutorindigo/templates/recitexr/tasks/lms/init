@@ -23,7 +23,7 @@ do
     site-configuration set --domain=$domain ENABLE_COMBINED_LOGIN_REGISTRATION true
     site-configuration set --domain=$domain ENABLE_COURSE_DISCOVERY false
     site-configuration set --domain=$domain ENABLE_DASHBOARD_SEARCH true
-    site-configuration set --domain=$domain ENABLE_MKTG_SITE true    
+    site-configuration set --domain=$domain ENABLE_MKTG_SITE false    
     site-configuration set --domain=$domain ENABLE_PAID_COURSE_REGISTRATION true
     site-configuration set --domain=$domain ENABLE_PROFILE_MICROFRONTEND true
     site-configuration set --domain=$domain ENABLE_SHOPPING_CART true
