@@ -282,7 +282,7 @@ config = {
                 "MKG_ROOT_URL": f"recitexr.{MKG_HOST}",
             },
             "common": {
-                "PLATFORM_NAME": "{{ PLATFORM_NAME }} - REVVED",
+                "PLATFORM_NAME": "{{ PLATFORM_NAME }} - RECITEXR",
                 "PRIMARY_COLOR": EDUCATEWORKFORCE_BLUE,
                 "FOOTER_NAV_LINKS": [
                     {"title": "Contact", "url": "/contact"},
