@@ -382,6 +382,38 @@
     import proxy "mfe:8002"
 }
 
+# SKILREDI
+# -----------------------------------------
+
+# LMS
+{{ SKILREDI_LMS_HOST }}{$default_site_port} {
+    @favicon_matcher {
+        path_regexp ^/favicon.ico$
+    }
+    rewrite @favicon_matcher /theming/asset/images/favicon.ico
+
+    # Limit profile image upload size
+    request_body /api/profile_images/*/*/upload {
+        max_size 1MB
+    }
+    request_body {
+        max_size 4MB
+    }
+
+    import proxy "lms:8000"
+
+    {{ patch("caddyfile-lms")|indent(4) }}
+}
+
+# MFE
+{{ SKILREDI_MFE_HOST }}{$default_site_port} {
+    respond / 204
+    request_body {
+        max_size 2MB
+    }
+    import proxy "mfe-skilredi:8002"
+}
+
 # SPARTANBURG
 # -----------------------------------------
 

@@ -121,9 +121,95 @@ $font-path: '../../certificates/fonts';
     url('#{$font-path}/OpenSans/OpenSans-BoldItalic-webfont.ttf') format('truetype');
 }
 
+// Roboto
+// https://fonts.google.com/specimen/Roboto
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto/Roboto-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 // typography: config - stacks
-$font-family-serif: 'Domine', serif;
-$font-family-sans: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+$font-family-serif: "Roboto", 'Domine', serif;
+$font-family-sans: "Roboto", "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 
 // vertical spacing
 $baseline-vertical:         2.5rem !default;
