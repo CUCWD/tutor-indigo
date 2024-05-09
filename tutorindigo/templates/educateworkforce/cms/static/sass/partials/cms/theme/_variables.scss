@@ -1,0 +1,9 @@
+$primary: {{ EDUCATEWORKFORCE_PRIMARY_COLOR }};
+
+// Theme fonts
+$font-family-title: 'Roboto', Plex;
+$serif: 'Roboto', Crimson;
+$f-sans-serif: 'Roboto', Crimson, 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Initialize the Open edX Bootstrap theme
+@import 'edx-bootstrap/sass/open-edx/theme';

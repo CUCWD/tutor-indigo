@@ -80,8 +80,8 @@ config = {
             "development": {
                 "LMS_HOST": "caregiver.{{ LMS_HOST }}",
                 "CMS_HOST": "caregiver.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.caregiver.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.caregiver.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 "MKG_ROOT_URL": f"caregiver.{MKG_HOST}",
             },
@@ -108,8 +108,8 @@ config = {
             "development": {
                 "LMS_HOST": "chooseaerospace.{{ LMS_HOST }}",
                 "CMS_HOST": "chooseaerospace.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.chooseaerospace.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.chooseaerospace.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "TtGR95PLToqqhLucWwN0wA",
                 "MKG_ROOT_URL": f"chooseaerospace.{MKG_HOST}",
             },
@@ -136,8 +136,8 @@ config = {
             "development": {
                 "LMS_HOST": "educateworkforce.{{ LMS_HOST }}",
                 "CMS_HOST": "educateworkforce.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.educateworkforce.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.educateworkforce.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "npqlh0acRFG5pKKbnb4SRg",
                 "MKG_ROOT_URL": f"educateworkforce.{MKG_HOST}",
             },
@@ -164,8 +164,8 @@ config = {
             "development": {
                 "LMS_HOST": "harford.{{ LMS_HOST }}",
                 "CMS_HOST": "harford.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.harford.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.harford.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "qkkTvDT_TBm811TKRdJLUA",
                 "MKG_ROOT_URL": f"harford.{MKG_HOST}",
             },
@@ -192,8 +192,8 @@ config = {
             "development": {
                 "LMS_HOST": "meep.{{ LMS_HOST }}",
                 "CMS_HOST": "meep.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.meep.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.meep.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "ExCOJ43VT1-koZwK8zYpIw",
                 "MKG_ROOT_URL": f"meep.{MKG_HOST}",
             },
@@ -220,8 +220,8 @@ config = {
             "development": {
                 "LMS_HOST": "ncatech.{{ LMS_HOST }}",
                 "CMS_HOST": "ncatech.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.ncatech.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.ncatech.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "NoEnAQlVSyOQXU-Um5B37g",
                 "MKG_ROOT_URL": f"ncatech.{MKG_HOST}",
             },
@@ -248,8 +248,8 @@ config = {
             "development": {
                 "LMS_HOST": "photonics.{{ LMS_HOST }}",
                 "CMS_HOST": "photonics.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.photonics.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.photonics.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "I5mydGaQS9KTKNTLQlk7Hw",
                 "MKG_ROOT_URL": f"photonics.{MKG_HOST}",
             },
@@ -276,8 +276,8 @@ config = {
             "development": {
                 "LMS_HOST": "recitexr.{{ LMS_HOST }}",
                 "CMS_HOST": "recitexr.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.recitexr.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.recitexr.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 "MKG_ROOT_URL": f"recitexr.{MKG_HOST}",
             },
@@ -304,8 +304,8 @@ config = {
             "development": {
                 "LMS_HOST": "revved.{{ LMS_HOST }}",
                 "CMS_HOST": "revved.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.revved.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.revved.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 "MKG_ROOT_URL": f"revved.{MKG_HOST}",
             },
@@ -332,8 +332,8 @@ config = {
             "development": {
                 "LMS_HOST": "revved-gvltec.{{ LMS_HOST }}",
                 "CMS_HOST": "revved-gvltec.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.revved-gvltec.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.revved-gvltec.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 "MKG_ROOT_URL": f"revved.{MKG_HOST}",
             },
@@ -360,8 +360,8 @@ config = {
             "development": {
                 "LMS_HOST": "revved-sccsc.{{ LMS_HOST }}",
                 "CMS_HOST": "revved-sccsc.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.revved-sccsc.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.revved-sccsc.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 "MKG_ROOT_URL": f"revved.{MKG_HOST}",
             },
@@ -388,13 +388,41 @@ config = {
             "development": {
                 "LMS_HOST": "revved-tridenttech.{{ LMS_HOST }}",
                 "CMS_HOST": "revved-tridenttech.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.revved-tridenttech.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.revved-tridenttech.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 "MKG_ROOT_URL": f"revved.{MKG_HOST}",
             },
             "common": {
                 "PLATFORM_NAME": "{{ PLATFORM_NAME }} - REVVED - Trident Technical College",
+                "PRIMARY_COLOR": EDUCATEWORKFORCE_BLUE,
+                "FOOTER_NAV_LINKS": [
+                    {"title": "Contact", "url": "/contact"},
+                ],
+                "FOOTER_LEGAL_LINKS": [
+                    {"title": "Terms of Service", "url": "/tos"},
+                ],
+            }
+        },
+        "SKILREDI": {
+            "production": {
+                "LMS_HOST": "courses.skilredi.com", # "skilredi.courses.educateworkforce.com",
+                "CMS_HOST": EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT,
+                "MFE_HOST": "apps.courses.skilredi.com", # apps.skilredi.educateworkforce.com
+                "SESSION_COOKIE_DOMAIN": ".courses.skilredi.com",
+                "BADGR_ISSUER_SLUG": "Ys701T6QT5Wa61mFneBu7w",  # Todo: Need to set this up.
+                "MKG_ROOT_URL": f"skilredi.com", 
+            },
+            "development": {
+                "LMS_HOST": "skilredi.{{ LMS_HOST }}",
+                "CMS_HOST": "skilredi.{{ CMS_HOST }}",
+                "MFE_HOST": "apps.skilredi.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
+                # "BADGR_ISSUER_SLUG": "",
+                "MKG_ROOT_URL": f"skilredi.{MKG_HOST}",
+            },
+            "common": {
+                "PLATFORM_NAME": "SkilRedi",
                 "PRIMARY_COLOR": EDUCATEWORKFORCE_BLUE,
                 "FOOTER_NAV_LINKS": [
                     {"title": "Contact", "url": "/contact"},
@@ -416,8 +444,8 @@ config = {
             "development": {
                 "LMS_HOST": "spartanburg.{{ LMS_HOST }}",
                 "CMS_HOST": "spartanburg.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.spartanburg.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.spartanburg.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "I5mydGaQS9KTKNTLQlk7Hw",
                 "MKG_ROOT_URL": f"spartanburg.{MKG_HOST}",
             },
@@ -444,8 +472,8 @@ config = {
             "development": {
                 "LMS_HOST": "thin-school.{{ LMS_HOST }}",
                 "CMS_HOST": "thin-school.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.thin-school.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.thin-school.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 "MKG_ROOT_URL": f"thin-school.{MKG_HOST}",
             },
@@ -474,8 +502,8 @@ config = {
                 "BIGCOMMERCE_STORE": "educateworkforce-development.mybigcommerce.com",
                 "LMS_HOST": "trustworks-cymanii.{{ LMS_HOST }}",
                 "CMS_HOST": "trustworks-cymanii.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.trustworks-cymanii.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.trustworks-cymanii.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 "BADGR_ISSUER_SLUG": "equqQ7hdTxGOcLqkz3rHTA",
                 "MKG_ROOT_URL": f"trustworks-cymanii.{MKG_HOST}",
             },
@@ -502,8 +530,8 @@ config = {
             "development": {
                 "LMS_HOST": "water-drops.{{ LMS_HOST }}",
                 "CMS_HOST": "water-drops.{{ CMS_HOST }}",
-                "MFE_HOST": "apps.water-drops.{{ LMS_HOST }}",
-                "SESSION_COOKIE_DOMAIN": "{{ LMS_HOST }}",
+                "MFE_HOST": "apps.water-drops.{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}",
+                "SESSION_COOKIE_DOMAIN": "{{ EDUCATEWORKFORCE_CONFIG_SESSION_COOKIE_DOMAIN }}",
                 # "BADGR_ISSUER_SLUG": "",
                 "MKG_ROOT_URL": f"water-drops.{MKG_HOST}",
             },
@@ -540,6 +568,7 @@ hooks.Filters.COMMANDS_INIT.add_items(
         ("lms", ("revved-gvltec", "tasks", "lms", "init")),
         ("lms", ("revved-sccsc", "tasks", "lms", "init")),
         ("lms", ("revved-tridenttech", "tasks", "lms", "init")),
+        ("lms", ("skilredi", "tasks", "lms", "init")),
         ("lms", ("spartanburg", "tasks", "lms", "init")),
         ("lms", ("thin-school", "tasks", "lms", "init")),
         ("lms", ("trustworks-cymanii", "tasks", "lms", "init")),
@@ -574,6 +603,7 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
         ("revved-gvltec", "build/openedx/themes"),
         ("revved-sccsc", "build/openedx/themes"),
         ("revved-tridenttech", "build/openedx/themes"),
+        ("skilredi", "build/openedx/themes"),
         ("spartanburg", "build/openedx/themes"),
         ("thin-school", "build/openedx/themes"),
         ("trustworks-cymanii", "build/openedx/themes"),
@@ -599,6 +629,7 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_items(
         r"revved-gvltec/lms/static/sass/partials/lms/theme/",
         r"revved-sccsc/lms/static/sass/partials/lms/theme/",
         r"revved-tridenttech/lms/static/sass/partials/lms/theme/",
+        r"skilredi/lms/static/sass/partials/lms/theme/",
         r"spartanburg/lms/static/sass/partials/lms/theme/",
         r"thin-school/lms/static/sass/partials/lms/theme/",
         r"trustworks-cymanii/lms/static/sass/partials/lms/theme/",
@@ -753,6 +784,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
 )
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [(f"REVVED_TRIDENTTECH_{key}", value) for key, value in config["sites"]["REVVED_TRIDENTTECH"]["common"].items()]
+)
+
+# Load all configuration entries for `skilredi`
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"SKILREDI_{key}", value) for key, value in config["defaults"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"SKILREDI_{key}", value) for key, value in config["sites"]["SKILREDI"][f"{ENVIRONMENT}"].items()]
+)
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [(f"SKILREDI_{key}", value) for key, value in config["sites"]["SKILREDI"]["common"].items()]
 )
 
 # Load all configuration entries for `spartanburg`
