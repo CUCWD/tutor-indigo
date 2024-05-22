@@ -1,3 +1,6 @@
+////////////////// Fonts
+@import "fonts";
+
 /////////////////// General
 
 $content_padding_top: 24px;
@@ -36,9 +39,6 @@ h1, h2, h3, h1 span, h2 span, h3 span, .nav-item {
   }
   min-height: calc(100vh - #{$header-height + $content-padding-top + $content-padding-bottom + $footer-height}); // sticky footer
 }
-
-////////////////// Fonts
-@import "fonts";
 
 /////////////////// Register/Sign in header
 header.global-header {
@@ -204,6 +204,10 @@ nav.wrapper-preview-menu {
       display: inline-block;
   }
   footer#footer-openedx .footer-about-openedx {
+
+      // Hide this for now since CUCWD doesn't want to show that we run Open edX.
+      display: none !important;
+
       a {
           float: none;
       }
