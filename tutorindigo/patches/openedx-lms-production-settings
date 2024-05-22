@@ -21,6 +21,10 @@ if "https://dmschools.instructure.com" not in CORS_ORIGIN_WHITELIST:
 if "https://canvas.mckinneyisd.net" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://canvas.mckinneyisd.net")
 
+# Piedmont Technical College
+if "https://ptcsc.desire2learn.com" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://ptcsc.desire2learn.com")
+
 # Securus Lantern LMS (Canvas)
 if "https://lms.qatest.lanternlms.com" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://lms.qatest.lanternlms.com")
@@ -28,6 +32,10 @@ if "https://lms.qatest.lanternlms.com" not in CORS_ORIGIN_WHITELIST:
 # Southern Tech (Canvas)
 if "https://sotc.instructure.com" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://sotc.instructure.com")
+
+# SUNY Ulster
+if "https://mylearning.suny.edu" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://mylearning.suny.edu")
 
 # Tulsa Public Schools (Canvas)
 # - East Central High School
