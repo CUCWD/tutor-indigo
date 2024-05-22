@@ -5,7 +5,13 @@ $font-family-sans-serif: 'Roboto' !default;
 $font-family-base: $font-family-sans-serif !default;
 $font-family-title: 'Roboto', Plex !default;
 $serif: 'Roboto', Crimson !default;
-$f-sans-serif: 'Roboto', Crimson, 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$f-sans-serif: 'Roboto', Crimson, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+
+// ----------------------------
+// #COMPONENT SIZING
+// ----------------------------
+$header-logo-width: 60px !default;
+$header-logo-height: 30px !default;
 
 // Initialize the Open edX Bootstrap theme
 @import 'edx-bootstrap/sass/open-edx/theme';

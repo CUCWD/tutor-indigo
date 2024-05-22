@@ -423,7 +423,7 @@ config = {
             },
             "common": {
                 "PLATFORM_NAME": "SkilRedi",
-                "PRIMARY_COLOR": EDUCATEWORKFORCE_BLUE,
+                "PRIMARY_COLOR": "#000059",
                 "FOOTER_NAV_LINKS": [
                     {"title": "Contact", "url": "/contact"},
                 ],
