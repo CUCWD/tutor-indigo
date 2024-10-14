@@ -25,6 +25,10 @@ if "https://canvas.mckinneyisd.net" not in CORS_ORIGIN_WHITELIST:
 if "https://ptcsc.desire2learn.com" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://ptcsc.desire2learn.com")
 
+# Pryor Public Schools
+if "https://pryorschools.instructure.com" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://pryorschools.instructure.com")
+
 # Securus Lantern LMS (Canvas)
 if "https://lms.qatest.lanternlms.com" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://lms.qatest.lanternlms.com")
