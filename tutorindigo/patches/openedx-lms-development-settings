@@ -1,141 +1,170 @@
 
 # Caregiver
-if "{{ CAREGIVER_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ CAREGIVER_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ CAREGIVER_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ CAREGIVER_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ CAREGIVER_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ CAREGIVER_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ CAREGIVER_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ CAREGIVER_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ CAREGIVER_MFE_HOST }}")
+{% endfor %}
 
 # Choose Aerospace
-if "{{ CHOOSE_AEROSPACE_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ CHOOSE_AEROSPACE_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ CHOOSE_AEROSPACE_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ CHOOSE_AEROSPACE_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ CHOOSE_AEROSPACE_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ CHOOSE_AEROSPACE_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ CHOOSE_AEROSPACE_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ CHOOSE_AEROSPACE_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ CHOOSE_AEROSPACE_MFE_HOST }}")
+{% endfor %}
 
 # EducateWorkforce (this really is not needed because we define this a default LMS_HOST)
-if "{{ EDUCATEWORKFORCE_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ EDUCATEWORKFORCE_LMS_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ EDUCATEWORKFORCE_LMS_HOST }}")
 
-if "{{ EDUCATEWORKFORCE_MFE_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ EDUCATEWORKFORCE_MFE_HOST }}")
-
-if "http://{{ EDUCATEWORKFORCE_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}" not in CORS_ORIGIN_WHITELIST:
-    CORS_ORIGIN_WHITELIST.append("http://{{ EDUCATEWORKFORCE_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-
-# if "http://{{ EDUCATEWORKFORCE_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}" not in CORS_ORIGIN_WHITELIST:
-    # CORS_ORIGIN_WHITELIST.append("http://{{ EDUCATEWORKFORCE_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ EDUCATEWORKFORCE_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ EDUCATEWORKFORCE_LMS_HOST }}")
+{% endfor %}
 
 # Harford Community College
-if "{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
+{% endfor %}
 
 # MEEP
-if "{{ MEEP_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ MEEP_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ MEEP_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ MEEP_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ MEEP_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ MEEP_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ MEEP_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ MEEP_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ MEEP_MFE_HOST }}")
+{% endfor %}
 
 # NCATECH
-if "{{ NCATECH_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ NCATECH_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ NCATECH_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ NCATECH_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ NCATECH_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ NCATECH_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ NCATECH_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ NCATECH_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ NCATECH_MFE_HOST }}")
+{% endfor %}
 
 # MIT – AIM Photonics
-if "{{ PHOTONICS_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ PHOTONICS_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ PHOTONICS_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ PHOTONICS_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ PHOTONICS_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ PHOTONICS_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ PHOTONICS_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ PHOTONICS_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ PHOTONICS_MFE_HOST }}")
+{% endfor %}
 
 # RECITEXR
-if "{{ RECITEXR_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ RECITEXR_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ RECITEXR_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ RECITEXR_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ RECITEXR_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ RECITEXR_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ RECITEXR_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ RECITEXR_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ RECITEXR_MFE_HOST }}")
+{% endfor %}    
 
 # REVVED
-if "{{ REVVED_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ REVVED_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ REVVED_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ REVVED_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ REVVED_MFE_HOST }}")
+{% endfor %}    
 
 # REVVED – Greenville Technical College
-if "{{ REVVED_GVLTEC_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ REVVED_GVLTEC_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ REVVED_GVLTEC_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_GVLTEC_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_GVLTEC_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ REVVED_GVLTEC_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_GVLTEC_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_GVLTEC_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ REVVED_GVLTEC_MFE_HOST }}")
+{% endfor %}    
 
 # REVVED – Spartanburg Community College
-if "{{ REVVED_SCCSC_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ REVVED_SCCSC_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ REVVED_SCCSC_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_SCCSC_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_SCCSC_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ REVVED_SCCSC_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_SCCSC_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_SCCSC_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ REVVED_SCCSC_MFE_HOST }}")
+{% endfor %}    
 
 # REVVED – Trident Technical College
-if "{{ REVVED_TRIDENTTECH_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ REVVED_TRIDENTTECH_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ REVVED_TRIDENTTECH_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_TRIDENTTECH_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_TRIDENTTECH_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ REVVED_TRIDENTTECH_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_TRIDENTTECH_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ REVVED_TRIDENTTECH_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ REVVED_TRIDENTTECH_MFE_HOST }}")
+{% endfor %}
 
 # SKILREDI
-if "{{ SKILREDI_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ SKILREDI_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ SKILREDI_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ SKILREDI_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ SKILREDI_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ SKILREDI_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ SKILREDI_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ SKILREDI_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ SKILREDI_MFE_HOST }}")
+{% endfor %}
 
 # SPARTANBURG
-if "{{ SPARTANBURG_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ SPARTANBURG_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ SPARTANBURG_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ SPARTANBURG_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ SPARTANBURG_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ SPARTANBURG_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ SPARTANBURG_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ SPARTANBURG_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ SPARTANBURG_MFE_HOST }}")
+{% endfor %}
 
 # THIN_SCHOOL
-if "{{ THIN_SCHOOL_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ THIN_SCHOOL_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ THIN_SCHOOL_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ THIN_SCHOOL_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ THIN_SCHOOL_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ THIN_SCHOOL_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ THIN_SCHOOL_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ THIN_SCHOOL_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ THIN_SCHOOL_MFE_HOST }}")
+{% endfor %}
 
 # TRUSTWORKS_CYMANII
-if "{{ TRUSTWORKS_CYMANII_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ TRUSTWORKS_CYMANII_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ TRUSTWORKS_CYMANII_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ TRUSTWORKS_CYMANII_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ TRUSTWORKS_CYMANII_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ TRUSTWORKS_CYMANII_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
+{% endfor %}
 
 # WATER_DROPS
-if "{{ WATER_DROPS_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ WATER_DROPS_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ WATER_DROPS_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("http://{{ WATER_DROPS_LMS_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}")
-    # CORS_ORIGIN_WHITELIST.append("http://{{ WATER_DROPS_MFE_HOST }}:{{ MFE_LEARNING_MFE_APP["port"] }}/{{ MFE_LEARNING_MFE_APP["name"] }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ WATER_DROPS_MFE_HOST }}")
+CORS_ORIGIN_WHITELIST.append("http://{{ WATER_DROPS_LMS_HOST }}")
+
+# MFE Frontends
+{% for app in iter_values_named(suffix="MFE_APP") %}
+# {{ app["name"]}}
+CORS_ORIGIN_WHITELIST.append("http://{{ WATER_DROPS_LMS_HOST }}:{{ app["port"] }}")
+CSRF_TRUSTED_ORIGINS.append("{{ WATER_DROPS_MFE_HOST }}")
+{% endfor %}

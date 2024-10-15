@@ -4,7 +4,7 @@
 for domain in "{{ NCATECH_LMS_HOST }}" "{{ NCATECH_LMS_HOST }}:8000"
 do
     # Platform Configuration
-    site-configuration set --domain=$domain ACCOUNT_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ NCATECH_MFE_HOST }}/account"
+    site-configuration set --domain=$domain ACCOUNT_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://account.{{ NCATECH_MFE_HOST }}"
     site-configuration set --domain=$domain ALLOW_AUTOMATED_SIGNUPS true
     site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_DASHBOARD_FOR_AUTHENTICATED_USER true
     site-configuration set --domain=$domain ALWAYS_REDIRECT_HOMEPAGE_TO_LOGIN_FOR_UNAUTHENTICATED_USER false
@@ -17,6 +17,7 @@ do
     {% endif %}
 
     site-configuration set --domain=$domain COURSE_ABOUT_VISIBILITY_PERMISSION "see_about_page"
+    site-configuration set --domain=$domain COURSE_AUTHORING_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://course-authoring.{{ NCATECH_MFE_HOST }}"
     site-configuration set --domain=$domain COURSE_CATALOG_API_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ DISCOVERY_HOST }}/api/v1"
     site-configuration set --domain=$domain COURSE_CATALOG_VISIBILITY_PERMISSION "see_in_catalog"
     site-configuration set --domain=$domain COURSES_ARE_BROWSABLE false
@@ -30,7 +31,7 @@ do
     site-configuration set --domain=$domain ENABLE_THIRD_PARTY_AUTH true
     site-configuration set --domain=$domain DEFAULT_FROM_EMAIL "{{ NCATECH_DEFAULT_FROM_EMAIL }}"
     site-configuration set --domain=$domain FOOTER_ORGANIZATION_IMAGE "ncatech/images/logo-footer.png"
-    site-configuration set --domain=$domain LEARNING_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ NCATECH_MFE_HOST }}/learning"
+    site-configuration set --domain=$domain LEARNING_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}:/learning.{{ NCATECH_MFE_HOST }}"
     site-configuration set --domain=$domain LMS_ROOT_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://$domain"
     site-configuration set --domain=$domain MFE_CONFIG \
     "
@@ -120,7 +121,7 @@ do
     }
     " --json-argument
     site-configuration set --domain=$domain PLATFORM_NAME "{{ NCATECH_PLATFORM_NAME }}"
-    site-configuration set --domain=$domain PROFILE_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ NCATECH_MFE_HOST }}/profile/u/"
+    site-configuration set --domain=$domain PROFILE_MICROFRONTEND_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://profile.{{ NCATECH_MFE_HOST }}/u/"
     site-configuration set --domain=$domain RESTRICT_ENROLL_BY_REG_METHOD true
 
     {% if NCATECH_SESSION_COOKIE_DOMAIN %}
@@ -130,7 +131,7 @@ do
     site-configuration set --domain=$domain SHIB_DISABLE_TOS true
     site-configuration set --domain=$domain SITE_NAME $domain
     site-configuration set --domain=$domain SUPPORT_SITE_LINK "mailto:{{ NCATECH_SUPPORT_EMAIL }}"
-    site-configuration set --domain=$domain WRITABLE_GRADEBOOK_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://{{ NCATECH_MFE_HOST }}/gradebook"
+    site-configuration set --domain=$domain WRITABLE_GRADEBOOK_URL "{% if ENABLE_HTTPS %}https{% else %}http{% endif %}://gradebook.{{ NCATECH_MFE_HOST }}"
     
 
     # Additional Microsite Theming Configuration

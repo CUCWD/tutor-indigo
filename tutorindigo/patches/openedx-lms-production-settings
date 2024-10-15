@@ -50,142 +50,241 @@ if "https://tulsaps.instructure.com" not in CORS_ORIGIN_WHITELIST:
 
 # Caregiver
 if "{{ CAREGIVER_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ CAREGIVER_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ CAREGIVER_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ CAREGIVER_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ CAREGIVER_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ CAREGIVER_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ CAREGIVER_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ CAREGIVER_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ CAREGIVER_MFE_HOST }}")
+    {% endfor %}
 
 # Choose Aerospace
 if "{{ CHOOSE_AEROSPACE_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS 
     ALLOWED_HOSTS.append("{{ CHOOSE_AEROSPACE_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ CHOOSE_AEROSPACE_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ CHOOSE_AEROSPACE_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ CHOOSE_AEROSPACE_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ CHOOSE_AEROSPACE_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ CHOOSE_AEROSPACE_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ CHOOSE_AEROSPACE_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ CHOOSE_AEROSPACE_MFE_HOST }}")
+    {% endfor %}
 
 # EducateWorkforce (default site)
 if "{{ EDUCATEWORKFORCE_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ EDUCATEWORKFORCE_LMS_HOST }}")
-
-if "{{ EDUCATEWORKFORCE_MFE_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ EDUCATEWORKFORCE_MFE_HOST }}")
-
-if "https://{{ EDUCATEWORKFORCE_LMS_HOST }}" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://{{ EDUCATEWORKFORCE_LMS_HOST }}")
 
-if "https://{{ EDUCATEWORKFORCE_MFE_HOST }}" not in CORS_ORIGIN_WHITELIST:
-    CORS_ORIGIN_WHITELIST.append("https://{{ EDUCATEWORKFORCE_MFE_HOST }}")
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ EDUCATEWORKFORCE_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ EDUCATEWORKFORCE_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ EDUCATEWORKFORCE_MFE_HOST }}")
+    {% endfor %}
 
 # Harford Community College
 if "{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ HARFORD_COMMUNITY_COLLEGE_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ HARFORD_COMMUNITY_COLLEGE_MFE_HOST }}")
+    {% endfor %}
 
 # MEEP
 if "{{ MEEP_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ MEEP_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ MEEP_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ MEEP_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ MEEP_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ MEEP_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ MEEP_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ MEEP_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ MEEP_MFE_HOST }}")
+    {% endfor %}
 
 # NCATECH
 if "{{ NCATECH_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ NCATECH_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ NCATECH_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ NCATECH_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ NCATECH_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ NCATECH_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ NCATECH_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ NCATECH_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ NCATECH_MFE_HOST }}")
+    {% endfor %}
 
 # MIT – AIM Photonics
 if "{{ PHOTONICS_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ PHOTONICS_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ PHOTONICS_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ PHOTONICS_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ PHOTONICS_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ PHOTONICS_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ PHOTONICS_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ PHOTONICS_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ PHOTONICS_MFE_HOST }}")
+    {% endfor %}
 
 # RECITEXR
 if "{{ RECITEXR_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ RECITEXR_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ RECITEXR_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ RECITEXR_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ RECITEXR_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ RECITEXR_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ RECITEXR_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ RECITEXR_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ RECITEXR_MFE_HOST }}")
+    {% endfor %}
 
 # REVVED
 if "{{ REVVED_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ REVVED_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ REVVED_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ REVVED_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ REVVED_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ REVVED_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ REVVED_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ REVVED_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ REVVED_MFE_HOST }}")
+    {% endfor %}
 
 # REVVED – Greenville Technical College
 if "{{ REVVED_GVLTEC_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ REVVED_GVLTEC_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ REVVED_GVLTEC_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ REVVED_GVLTEC_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ REVVED_GVLTEC_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ REVVED_GVLTEC_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ REVVED_GVLTEC_LMS_HOST }}")    
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ REVVED_GVLTEC_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ REVVED_GVLTEC_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ REVVED_GVLTEC_MFE_HOST }}")
+    {% endfor %}
 
 # REVVED – Spartanburg Community College
 if "{{ REVVED_SCCSC_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ REVVED_SCCSC_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ REVVED_SCCSC_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ REVVED_SCCSC_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ REVVED_SCCSC_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ REVVED_SCCSC_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ REVVED_SCCSC_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ REVVED_SCCSC_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ REVVED_SCCSC_MFE_HOST }}")
+    {% endfor %}
 
 # REVVED – Trident Technical College
 if "{{ REVVED_TRIDENTTECH_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ REVVED_TRIDENTTECH_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ REVVED_TRIDENTTECH_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ REVVED_TRIDENTTECH_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ REVVED_TRIDENTTECH_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ REVVED_TRIDENTTECH_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ REVVED_TRIDENTTECH_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ REVVED_TRIDENTTECH_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ REVVED_TRIDENTTECH_MFE_HOST }}")
+    {% endfor %}
 
 # SKILREDI
 if "{{ SKILREDI_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ SKILREDI_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ SKILREDI_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ SKILREDI_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ SKILREDI_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ SKILREDI_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ SKILREDI_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ SKILREDI_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ SKILREDI_MFE_HOST }}")
+    {% endfor %}
 
 # SPARTANBURG
 if "{{ SPARTANBURG_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ SPARTANBURG_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ SPARTANBURG_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ SPARTANBURG_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ SPARTANBURG_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ SPARTANBURG_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ SPARTANBURG_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ SPARTANBURG_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ SPARTANBURG_MFE_HOST }}")
+    {% endfor %}
 
 # THIN_SCHOOL
 if "{{ THIN_SCHOOL_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ THIN_SCHOOL_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ THIN_SCHOOL_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ THIN_SCHOOL_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ THIN_SCHOOL_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ THIN_SCHOOL_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ THIN_SCHOOL_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ THIN_SCHOOL_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ THIN_SCHOOL_MFE_HOST }}")
+    {% endfor %}
 
 # TRUSTWORKS_CYMANII
 if "{{ TRUSTWORKS_CYMANII_LMS_HOST }}" not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append("{{ TRUSTWORKS_CYMANII_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ TRUSTWORKS_CYMANII_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
+    # BigCommerce
     CORS_ORIGIN_WHITELIST.append("https://{{ TRUSTWORKS_CYMANII_BIGCOMMERCE_STORE }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ TRUSTWORKS_CYMANII_MFE_HOST }}")    
+
+    # LMS
+    ALLOWED_HOSTS.append("{{ TRUSTWORKS_CYMANII_LMS_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ TRUSTWORKS_CYMANII_LMS_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ TRUSTWORKS_CYMANII_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ TRUSTWORKS_CYMANII_MFE_HOST }}") 
+    {% endfor %}   
 
 # Water-Drops
 if "{{ WATER_DROPS_LMS_HOST }}" not in ALLOWED_HOSTS:
+    # LMS
     ALLOWED_HOSTS.append("{{ WATER_DROPS_LMS_HOST }}")
-    ALLOWED_HOSTS.append("{{ WATER_DROPS_MFE_HOST }}")
     CORS_ORIGIN_WHITELIST.append("https://{{ WATER_DROPS_LMS_HOST }}")
-    CORS_ORIGIN_WHITELIST.append("https://{{ WATER_DROPS_MFE_HOST }}")
-    CSRF_TRUSTED_ORIGINS.append("{{ WATER_DROPS_MFE_HOST }}")
+
+    # MFE Frontends
+    {% for app in iter_values_named(suffix="MFE_APP") %}
+    # {{ app["name"]}}
+    ALLOWED_HOSTS.append("{{ app["name"] }}.{{ WATER_DROPS_MFE_HOST }}")
+    CORS_ORIGIN_WHITELIST.append("https://{{ app["name"] }}.{{ WATER_DROPS_MFE_HOST }}")
+    CSRF_TRUSTED_ORIGINS.append("{{ app["name"] }}.{{ WATER_DROPS_MFE_HOST }}")
+    {% endfor %}
