@@ -3,7 +3,7 @@ import copy
 import os
 import pkg_resources
 
-from tutor import hooks
+from tutor import hooks, exceptions
 
 from .__about__ import __version__
 
@@ -21,10 +21,9 @@ EDUCATEWORKFORCE_CMS_HOST_PROD_DEFAULT = "{{ CMS_HOST }}"
 EDUCATEWORKFORCE_SUPPORT_EMAIL = "support@educateworkforce.com"
 EDUCATEWORKFORCE_DEFAULT_FROM_EMAIL = "no-reply@educateworkforce.com"
 
-# Check to see if we're in [`staging`, `production`] handle configuration accordingly.
-ENVIRONMENT = "development"
-MKG_HOST = "localhost:8080"
-def set_environment(deployment_environment):
+try:
+    # Check to see if we're in [`staging`, `production`] handle configuration accordingly.
+    deployment_environment = os.environ['TUTOR_DEPLOYMENT_ENVIRONMENT']
     if deployment_environment == "production":
         print("production")
         ENVIRONMENT = "production"
@@ -32,21 +31,13 @@ def set_environment(deployment_environment):
     elif deployment_environment == "staging":
         print("staging")
         ENVIRONMENT = "development"
-        MKG_HOST = "{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}"        
-
-deployment_environment = os.environ.get('TUTOR_DEPLOYMENT_ENVIRONMENT', 'localhost') # production
-set_environment(deployment_environment)
-print(f"Deployment Environment: {deployment_environment} - {ENVIRONMENT} {MKG_HOST}")
-# match deployment_environment:
-#     case "production":
-#         ENVIRONMENT = "production"
-#         MKG_HOST = "{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}"
-#     case "staging":
-#         ENVIRONMENT = "development"
-#         MKG_HOST = "{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}"
-#     case _: # default
-#         ENVIRONMENT = "development"
-#         MKG_HOST = "localhost:8080"
+        MKG_HOST = "{{ EDUCATEWORKFORCE_CONFIG_BASE_DOMAIN }}"
+    else:
+        ENVIRONMENT = "development"
+        MKG_HOST = "localhost:8080"
+    print(f"Deployment Environment: {deployment_environment} - {ENVIRONMENT} {MKG_HOST}")
+except KeyError as exc:
+    raise exceptions.TutorError(f"Please specify a TUTOR_DEPLOYMENT_ENVIRONMENT variable. - {exc}")
 
 # Default settings for `indigo` theme. Overrides for individual sites will follow.
 config = {
