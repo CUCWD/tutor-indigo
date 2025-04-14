@@ -9,6 +9,10 @@ if "https://idp.app.clemson.edu" not in CORS_ORIGIN_WHITELIST:
 
 #################### External LTI Consumer Settings #######################
 
+# Cape Fear Community College
+if "https://cfcc.instructure.com" not in CORS_ORIGIN_WHITELIST:
+    CORS_ORIGIN_WHITELIST.append("https://cfcc.instructure.com")
+
 # Clemson Canvas
 if "https://clemson.instructure.com" not in CORS_ORIGIN_WHITELIST:
     CORS_ORIGIN_WHITELIST.append("https://clemson.instructure.com")
